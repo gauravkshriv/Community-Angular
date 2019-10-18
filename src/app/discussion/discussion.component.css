@@ -1,0 +1,39 @@
+
+.disc {
+  margin-top: -8px;
+}
+
+
+.card-header
+{
+  background-color: #0da4dd;
+  padding: 6px 10px;
+}
+.card.attchement_sec
+{
+  width: 100%;
+}
+
+
+.likeDislikeBtnClr {
+  color: #0da4dd;
+}
+
+.cursor_pointer{
+  cursor: pointer;
+}
+
+.attach_size{
+  width: 20%;
+}
+
+.card .card-header:after {
+  font-family: 'FontAwesome';  
+  content: "\f077";
+  float: right; 
+}
+.card .card-header.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\f078"; 
+  font-family: 'FontAwesome'; 
+}

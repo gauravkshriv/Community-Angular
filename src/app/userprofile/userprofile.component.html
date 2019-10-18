@@ -1,0 +1,179 @@
+
+<div id="main">
+  <div class="bg-prof"></div>
+  <div class="container prof-area">
+      <div class="sub-header">
+          <h3 class="d-inline">Profile Page</h3>
+        <div class="user_sec">  <span><i class="fa fa-comments"></i>Start a Chat</span> <span><i class="fa fa-users"></i>Add to Group</span> <span><i class="fa fa-clipboard"></i>Send a Proposal</span> <span><i class="fa fa-tasks"></i>Assign a Task</span> <span><i class="fa fa-user-circle"></i>Report a User</span></div>
+        </div>
+        <div class="land_loader" *ngIf="lod else load2">
+            <div class="app-loading">
+                <div class="logo"></div>
+                <svg class="spinner" viewBox="25 25 50 50">
+                  <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+                </svg>
+              </div>
+          </div>
+          <ng-template #load2>
+    <div class="row">
+      <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="prof-photo">
+            
+             
+          <div class="profile_img">
+              <div class="img_sec" *ngIf="profiledata.profilepicture == null; else pimg2">
+                  <img src="assets/images/profile.jpg" alt="profile" class="card-img-top">
+          </div>
+          <ng-template #pimg2>
+              <img src="{{profiledata.profilepicture}}" alt="profile" class="card-img-top">  
+            </ng-template>
+            <!-- <img src="{{profiledata.profilepicture}}" class="card-img-top mb-3"> -->
+             
+        </div>
+        
+         
+          </div>
+
+          <div class="text-center prof-views">
+              <b>1.7k </b><span><u> Profile Views </u></span>
+            </div> 
+
+          <!-- <div class="remove" *ngIf="Picstatus">
+            <a (click)="RemovePic()">Delete</a>
+            </div> -->
+
+            <div class="profle_view">
+
+                <div class="row"> 
+                  <div class="col">
+                      <div class="rates" style="font-size: 14px;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                   
+            
+                <div class="social_prof" style="font-size: 14px;">
+                    <a><i class="fab fa fa-facebook mr-3"></i></a>
+                    <a><i class="fab fa fa-twitter mr-3"></i></a>
+                    <a><i class="fab fa fa-globe mr-3"></i></a>
+                    <a><i class="fab fa fa-linkedin mr-3"></i></a>
+                    <a><i class="fab fa fa-briefcase mr-3"></i></a>
+                  </div>
+                </div>
+            </div>
+            </div>
+
+
+
+         
+       
+      </div>
+      <div class="col-md-9 col-lg-9 col-sm-12">
+        <div class=" prof-info">
+            <div class="name">
+      <!-- {{ this.deleteDataResponse || json }} -->
+                    <!-- <a routerLink="/user/edit"><button class="btn btn-primary discuss_button">Edit Profile</button></a> -->
+                      
+<h3 class="d-inline">{{profiledata.fullname}}</h3>
+<div class="online-sec">
+<span class="onlinestat" *ngIf="onlinestatus === true">Online</span>
+<span class="offlinestat" *ngIf="onlinestatus === false">Offline </span>
+<span class="lastlog" *ngIf="onlinestatus === false">{{lastlogoutime}}</span>
+ </div>
+</div>     
+            <div class="loc-market pb-2">
+                <div class="profile_row">
+   <table class="table-responsive">
+     <tr>
+       <td> <h6>Username :</h6></td>
+       <td> <p>{{profiledata.username}}</p></td>
+     </tr>
+     <tr>
+       <td> <h6>DOB</h6></td>
+       <td><p>{{profiledata.dob}}</p> </td>
+     </tr>
+     <tr>
+        <td>  <h6>Location  </h6></td>
+        <td> <p>{{profiledata.country}}</p> <p>{{profiledata.state}}</p><p>{{profiledata.city}}</p></td>
+      </tr>
+      <tr>
+          <td> <h6>Occupation </h6></td>
+          <td> <p *ngIf="profiledata._occ== ''; else occ">None</p>
+            <ng-template #occ>
+            <p class="data_occ" *ngFor="let data of profiledata?._occ">{{data}}</p> 
+            </ng-template></td>
+        </tr>
+        <tr>
+            <td>   <h6>Market Place </h6></td>
+            <td>  <p *ngIf="profiledata.market[0]== null; else mark">None</p>
+              <ng-template #mark>
+              <p *ngFor="let data of profiledata?.market">{{data}}</p> 
+              </ng-template></td>
+          </tr>
+
+          <tr>
+            <td> <h6>Specialization </h6></td>
+            <td><p *ngIf="profiledata._splz[0]== null; else splz">None</p>
+<ng-template #splz>
+               <p class="data_occ" *ngFor="let data of profiledata?._splz">{{data}}</p> 
+              </ng-template></td>
+          </tr>
+
+          <tr>
+              <td> <h6>particpation Type </h6></td>
+              <td>  
+                  <p *ngIf="profiledata._ptype[0]==null; else partictype">None</p>
+                <ng-template #partictype>
+                    <p *ngFor="let data of profiledata?._ptype">{{data}}</p>
+                
+              </ng-template>
+</td>
+            </tr>
+
+            <tr>
+                <td> <h6>Other Occupation </h6></td>
+                <td> 
+                    <p *ngIf="(profiledata.extraData?.otherOccupation=== null) ||
+                    (profiledata.extraData?.otherOccupation=== '') ; else otherocc">None</p>
+                  <ng-template #otherocc>
+               
+                   <p *ngFor="let data of profiledata.extraData?.otherOccupation">{{data}}</p>
+                 
+                </ng-template></td>
+              </tr>
+
+              <tr>
+                  <td> <h6>Vendor </h6></td>
+                  <td>
+                      <p   *ngIf="(profiledata.extraData?.vendor=='') || (profiledata.extraData?.vendor==null); else vendor">None</p>
+                    <ng-template #vendor>
+                
+                        <p *ngFor="let data of profiledata.extraData?.vendor">{{data}}</p>  
+                   
+                  </ng-template></td>
+                </tr>
+
+                <tr>
+                  <td> <h6>KYC Status</h6></td>
+                  <td><p>{{profiledata._kst}}</p> </td>
+                </tr>
+
+   </table>
+  </div> </div>
+         
+        </div>
+      </div>
+
+
+    </div>
+  </ng-template>
+  </div>
+</div>
+
+
+
+
+   

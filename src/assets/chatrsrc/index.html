@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Scockets Chat</title>
+        
+        <link rel="shortcut icon" type="image/x-icon" href="public/images/appicon.ico" />
+        <link rel="stylesheet" href="css/mdb.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <h2 id="userNameid"></h2>
+            <div id="error-container" class="text-danger"></div>
+            <div class="col-12">
+                <div id="onlineUsers"class="col-3 pull-right card messageDiv">
+                
+                </div>
+                <div class="card messageDiv">
+                    <div id="chat-window">
+                        <div id="feedback"></div>
+                        <div id="output"></div>
+                        <div id="feeduser">
+
+                        </div>
+                    </div>
+                    <div class="chatinbtn">
+                        <div class="row m-t-10" style="margin-left:0;">
+                            <div class="col-xs-10">
+                                <input id="message" type="text" class="form-control m-l-5" placeholder="Type a Message..." />
+                            </div>
+                            <div class="col-xs-2 pb-btn-circle-div">
+                                <button id="send" class="btn btn-success m-t-10"><span class="fa fa-paper-plane "></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/socket.io1.7.3.js"></script>
+        <script src="js/chat1.js"></script>
+    </body>
+</html>

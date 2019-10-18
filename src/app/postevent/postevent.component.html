@@ -1,0 +1,246 @@
+ <div class="event_page">
+    <div class="row">
+        <div class="col-lg-8">
+        <div class="event_title add"><h4>Events Registration</h4></div>
+      <div class="add_evnt">
+         
+        <div class="events" *ngIf="uuid=='71f32252-789d-422d-a4ac-a84a7d98fd5e'" >
+          <ul>
+            <a routerLink="/events/post-event"><li class="active">Event</li></a>
+            <a routerLink="/events/announcements/add"><li>Announcement</li></a>
+          </ul>
+        </div>
+    
+        <div class="event_registration">
+    <form class="form-signin">
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Categories</label>
+        <div class="col-sm-10">
+            <select [(ngModel)]="category" name="type" id="property-type" class="form-control" placeholder="Please select Categories" required>
+            <option *ngFor="let type of propertyTypes" [value]="type">
+            {{ utilService.capitalize(type) }}
+            </option>
+            </select></div>
+            </div>
+            
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Event Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="event" [(ngModel)]="event" required>
+          </div>
+        </div>
+    
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Speaker Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  name="speaker" [(ngModel)]="speaker" placeholder="">
+            </div>
+          </div>
+    <!--  -->
+      
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+              <ckeditor [editor]="Editor"></ckeditor>
+           
+            </div>
+          </div>
+    
+    
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Address</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="address" [(ngModel)]="address" placeholder="">
+              </div>
+            </div>
+    
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Invitation</label>
+              <div class="col-sm-10">
+                <div class="form-group">
+                  <input type="text" class="form-control"  name="invitee" [(ngModel)]="invitee" placeholder="">
+                    </div>
+               </div>
+            </div>
+    
+    <!--  -->
+           <div class="form-group row">
+            <div class="col-lg-6 row">
+               <label for="inputPassword3" class="col-sm-4 col-form-label">Start Date</label>
+                <div class="col-sm-8">
+                  <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" placeholder="yyyy-mm-dd"
+                                 name="date" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                          </div>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+            <div class="col-lg-6 row">
+              <label for="inputPassword3" class="col-sm-3 col-form-label">End Date</label>
+              <div class="col-sm-9">
+                <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="date" [(ngModel)]="endDate" ngbDatepicker #a="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="a.toggle()" type="button"></button>
+                        </div>
+                      </div>
+                    </div>
+               </div>
+            </div>
+            </div>
+    
+              <!-- <div class="form-group row">-->
+               
+    
+    <!--  -->
+    <div class="form-group row">
+      <div class="col-lg-6 row">
+        <label for="inputPassword3" class="col-sm-4 col-form-label cal">Start Time</label>
+          <div class="col-sm-8">
+            <div class="form-group">
+              <ngb-timepicker name="time" [(ngModel)]="eventStartTime" [meridian]="meridian"></ngb-timepicker>
+              </div>
+           </div>
+      </div>
+      <div class="col-lg-6 row">
+        <label for="inputPassword3" class="col-sm-4 col-form-label cal">End Time</label>
+        <div class="col-sm-8">
+          <div class="form-group">
+            <ngb-timepicker name="time" [(ngModel)]="eventEndTime" [meridian]="meridian"></ngb-timepicker>
+            </div>
+         </div>
+      </div>
+      </div>
+    
+        <!-- <div class="form-group row">-->
+         
+    
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Attachement</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="imageUpload1" multiple="multiple" (change)="fileuploads($event)" name="file" class="upload-file">
+                    </div>
+                  </div>
+          
+                  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+                      <li *ngFor="let image of images">
+                          <a href="javascript:void(0)" (click)="deleteImage(image)"><i class="fa fa-trash"></i></a>                      
+                        <!-- <h6>Attachement</h6> -->
+                        <div class="img_sec" *ngIf="image.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
+                          <img src="assets/images/word-icon.png" alt="word">
+                         </div>
+    
+                  <div class="img_sec" *ngIf="image.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">
+                    <img src="assets/images/ppt-icon.png" alt="ppt">
+            </div>
+    
+            <div class="img_sec" *ngIf="image.type === 'application/vnd.ms-excel'">
+              <img src="assets/images/excel-icon.png" alt="excel">
+      </div>
+    
+            <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+              <img src="assets/images/pdf-icon.png" alt="pdf">
+      </div>  
+          </li>
+                    </ul>
+                    <!--  -->
+    
+    
+    <!-- <div class="form-group row">-->
+         
+    
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Gallery</label>
+        <div class="col-sm-10">
+            <input type="file" id="imageUpload1" accept="image/*" multiple="multiple" (change)="fileGalleryuploads($event)" name="file" class="upload-file">
+        </div>
+      </div>
+    
+      <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+          <li *ngFor="let image of imagesg">
+              <a href="javascript:void(0)" (click)="deleteImagegallery(image)"><i class="fa fa-trash"></i></a>                      
+              <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+                <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+                <!-- {{image.type}} -->
+              </div>
+              <div class="img_sec" *ngIf="image.type === 'image/png'">
+                <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+              </div>
+              <!-- <div class="img_sec" *ngIf="image.type === ">
+                <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+              </div> -->
+                         
+    </li>
+        </ul>
+        <!--  -->
+    
+    
+    
+    
+                    <!--  -->
+                
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Event Location</label>
+          <div class="col-sm-10">
+          <div class="form-group">
+            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+          </div>
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+              </div>
+    
+                </div>
+
+                <!-- <div class="form-group row">
+                  <div class="col-sm-10">
+                    <button class="btn btn-primary" (click)="setCurrentPosition()">Find me</button>
+                     
+                      </div>
+            
+                        </div> -->
+              
+                           
+              
+    <div class="form-group row">
+        <div class="col-sm-2">
+          </div>
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" (click)="AddEvent()">Register Event</button>
+    
+          </div>
+          
+          </div>
+      </form>
+    </div>
+    
+    
+    </div>
+    </div>
+    
+    
+    <div class="col-lg-4">
+        <div class="event_title">
+        <h4>Up Coming Events</h4> 
+      </div>
+        <div class="card">
+        <div class="event-item">
+            <div class="announc_event event_page_left">
+          
+        </div>
+      </div>
+    
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    
+    
+    <!-- <ng-datepicker [(ngModel)]="date"></ng-datepicker> -->

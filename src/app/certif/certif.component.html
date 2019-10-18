@@ -1,0 +1,23 @@
+<div class="container-fluid pt-2 filter_top main certify">
+<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+
+<p></p>
+<table *ngFor="let emp1 of customerData | grdFilter: {name: searchText}; let i=index;">
+  <tr>
+    <td>{{i +1}}</td>
+    <td>{{emp1.name}}</td>
+     <!-- <td style="width: 5%;">{{emp.Age}}</td> -->
+    <!-- <td style="width: 15%;">{{emp.blog}}</td> -->
+  </tr>
+
+  
+</table>
+<div class="ok">sdsdadadadad</div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,117 @@
+.categories{
+	height: 200px;
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 2px;
+    box-shadow:0px 0px 3px #b6b3b3;
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+    text-align: center;
+}
+.categories:hover{
+	box-shadow: 0px 0px 15px #b6b3b3;
+    transition: 0.5s;
+    transform: scale(1.09);
+}
+.categories img{
+	width: 115px;
+}
+.categories h5{
+	position: relative;
+	z-index: 5;
+	padding:10px 5px;
+}
+#broker{
+	background-image: url('img/broker.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.card-img-overlay{
+	    background-image: linear-gradient(to top,#3330,#3355649c);
+}
+.card-img-overlay h6{
+	font-size: 25px;
+    text-shadow: 1px 2px 3px #333;
+    font-weight: 700;
+    color: #ffffff;
+}
+#sideNav{
+	background: #a1b8c2;
+    font-weight: 700;
+    border: 5px solid #a1b8c2;
+}
+.prevButton , .nextButton{
+	position: absolute;
+	top: 35%;
+    padding: 6px 5px 0 5px !important;
+    background: #0b0b0b8a;
+}
+.prevButton{
+    left: 10px;
+}
+.nextButton{
+    right: 10px;
+}
+.footer{
+	margin-top: 20px;
+	background: #dddad7;
+    padding: 50px 0;
+}
+.terms , .copyright , .social{
+	text-align: center !important;
+}
+.terms a{
+	color: #10172e !important;
+	font-weight: 500;
+}
+.terms a:hover{
+	text-decoration:underline !important;
+	color: #0da4dd !important;
+} 
+.copyright{
+	color: #10172e;
+    font-weight: 500;
+}
+.social-btn{
+	padding: 15px 18px;
+    background: #b3b3b3;
+    border-radius: 100%;
+}
+.social a:hover{
+	background-color: #0da4dd;
+	color: !important;
+}
+.fb{
+	padding: 15px 21px;
+}
+@media(max-width:576px)
+{
+	.col-sm-3 ,.col-sm-4{
+		padding:0px !important; 
+	}
+}
+
+@media(max-width: 768px)
+{
+	#lowerBar{
+		max-width: 767px;
+	}
+	#mainContent{
+	flex: 0 0 100% !important;
+    max-width: 100% !important;
+	}
+	#mainSideBar{
+	flex: 0 0 100% !important;
+    max-width: 100% !important;
+	}
+		#mainHeading{
+		margin-bottom:0px;
+	}
+	.detailCard{
+		padding:0.3rem;
+	}
+
+}

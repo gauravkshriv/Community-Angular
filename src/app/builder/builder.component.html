@@ -1,0 +1,199 @@
+<div class="container-fluid pt-2 filter_top main">
+  <div class="sub-header">
+    <h3 class="d-inline">Builder</h3>
+    <form class="ml-lg-5 ml-md-5 ml-sm-1 search" action="" method="">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text p-0 border-0">
+                    <button type="submit" name="search" class="src-input-all btn src-btn pr-3 pl-3"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+                <input type="text" class="form-control src-input-all" id="inlineFormInputGroup" placeholder="search for Landowner">
+              </div>
+      </form>
+  </div>
+<div class="row landmarg">
+    <!-- filter section -->
+    <div class="col-lg-3 col-md-3 col-sm-12 container">
+      <div class="filters">
+        <!-- market place -->
+      
+        <!--  -->
+        <div class="tabcontent" id="tab4">
+         
+        <app-filter></app-filter>
+      </div>
+
+<!--  -->
+<div class="tabcontent" id="tab2">
+<app-location></app-location>
+</div>
+        <!--  -->
+<div class="tabcontent" id="tab3">
+<app-market></app-market>
+</div>
+        <!-- location  -->
+
+        <!-- certification -->
+    <div class="tabcontent" id="tab1">
+<app-certificate></app-certificate>
+</div>
+
+
+      </div>
+    </div>
+    <!-- list of profiles -->
+
+   
+
+    <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+        <div class="land_loader" *ngIf="lod else load2">
+            <div class="app-loading">
+                <div class="logo"></div>
+                <svg class="spinner" viewBox="25 25 50 50">
+                  <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+                </svg>
+              </div>
+          </div>
+          <ng-template #load2>
+              <div class="land-list mod-border pageexcception">
+                  <ul class="p-0">
+               <li class="container-fluid" *ngIf="filterdata.exception == 'PAGE_NOT_FOUND'">
+                 <h6>" Currently there are no data available in this category "</h6>
+                 </li>
+               </ul>
+               </div>
+
+      <div class="land-list mod-border" *ngFor="let user of userlist">
+        <ul class="p-0" >
+          <li class="container-fluid">
+            <div class="row">
+              <div class="col-lg-4 col-lg-4 col-sm-12">
+                <div class="prof-img">
+                    <!--  -->
+                  <div class="img_sec" *ngIf="user.profileurl == null; else pimg2">
+                      <img src="assets/images/profile.jpg" alt="profile" class="card-img-top">
+              </div>
+              <ng-template #pimg2>
+                  <img src="{{user.profileurl}}" alt="profile" class="card-img-top">
+                  
+                </ng-template>
+                <p>{{user.userName}}</p>
+            <a class="btn btn-primary send_msg" [routerLink]="['/user/userprofile',user.uuid]">View Profile</a> 
+                
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-12">
+              
+               
+                <div class="profile_loc">
+                  <table class="table-responsive">
+                    <tr>
+                      <td><span>Name :</span></td>
+                      <td><a>{{user.name}}</a></td>
+                    </tr>
+                    <tr>
+                        <td> <span>Occupation :</span></td>
+                          <td>
+                       
+                              <span *ngIf="user.Occupation.length > 2; else dataland"> 
+                                  <a>{{user.Occupation[0]}} </a>
+                                  <a>{{user.Occupation[1]}} </a>
+                                  <span class="more">(More)</span>
+                                </span>
+                               <ng-template #dataland>
+                                  <a *ngFor="let occu of user.Occupation"> {{occu}}</a> 
+                               </ng-template>
+                            
+                          
+                              </td>
+                      </tr>
+                    <tr>
+                        <td> 
+                          <span>Specialisation :</span></td>
+                          <td *ngIf="user.specialization[0] == none; else spec">
+                          <a>None</a></td>
+                          <ng-template #spec>
+                          <td *ngIf="user.specialization.length > 2 else dataspec">
+                          <a>{{user.specialization[0]}} </a>
+                          <a>{{user.specialization[1]}} </a>
+                          <span class="more">(More)</span>
+                          </td>
+                          <ng-template #dataspec>
+                            <td>
+                              <a *ngFor="let speci of user.specialization"> {{speci}}</a> 
+                            </td>
+                            </ng-template>
+                            </ng-template>
+                 
+
+                      </tr>
+                      <tr>
+                          <td> <span>Location :</span></td>
+                          <td><a>{{user.location}}</a></td>
+                        </tr>
+
+                        <!-- <tr>
+                           <td> <span>Email ID: </span></td>
+                            <td><a>{{show.email}}</a></td>
+                          </tr> -->
+                   
+                  </table>
+                 
+                  <!-- <span>Due Dilligence : </span> <a>Done</a> <br>
+                  <span>Total Land Deployed : </span> <a>15000 Acr2</a> -->
+                </div>
+              </div>
+            </div>
+          </li>
+          </ul>
+        </div>
+     
+        <div class="pg"  *ngIf="filterdata.exception != 'PAGE_NOT_FOUND'">
+          <ul class="pagination">
+            <li class="page-item"><a (click)="loadData(1)" class="page-link">1</a></li>
+            <li class="page-item"><a (click)="loadData(2)" class="page-link">2</a></li>
+            <li class="page-item"><a (click)="loadData(3)" class="page-link">3</a></li>
+            <li class="page-item"><a (click)="loadData(4)" class="page-link">4</a></li>
+            <li class="page-item"><a (click)="loadData(5)" class="page-link">5</a></li>
+            <li class="page-item"><a (click)="loadData(6)" class="page-link">6</a></li>
+            <li class="page-item"><a (click)="loadData(7)" class="page-link">7</a></li>
+            <li class="page-item"><a (click)="loadData(8)" class="page-link">8</a></li>
+            <li class="page-item"><a (click)="loadData(9)" class="page-link">9</a></li>
+            <li class="page-item"><a (click)="loadData(10)" class="page-link">10</a></li>
+          </ul>
+        </div>
+      </ng-template>
+      
+    </div>
+
+    <!-- trending and forums discussions -->
+    <div class="col-lg-3 col-md-3 col-sm-12 container disc-forums">
+      <div class="trend-forums ">
+      
+<app-favdisc></app-favdisc>
+        
+<app-trending></app-trending>
+
+      </div>
+    </div>
+</div>
+</div>
+
+<!-- mobile tab section  -->
+
+<div class="filter_sec">
+  <ul class="nav nav-tabs">
+
+    <li class="tablinks" (click)="certif()">Certificate</li>
+    <li class="tablinks" (click)="locat()">Location</li>
+    <li class="tablinks" (click)="mark()">Market</li>
+    <li class="tablinks" (click)="pop()">Popularity</li>
+  </ul>
+</div>
+
+<!-- popover  -->
+
+
+
+

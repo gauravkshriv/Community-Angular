@@ -1,0 +1,183 @@
+<!-- sidebar starts here -->
+<header>
+    <div id="mySidenav" class="sidenav">
+    <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <a routerLink="/home">
+            <img src="assets/images/rme.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 rme-logo"></a>
+          <a class="closebtn" (click)="closeNav()">&times;</a>
+  
+        </div>
+        <ul class="list- components">
+          <li>
+            <a routerLink="/postdiscussion"><img src="assets/images/meeting.png" alt="meeting"/> Start Discussion</a>
+          </li>
+          <li><a routerLink="/community" (click)="closeNav()"><img src="assets/images/comm.png" alt="comm"/> My Commmnity</a>
+          </li>
+          <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img
+            src="assets/images/browse.png"/> Browse Community</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+              <li>
+                <a routerLink="/user/land-owner">- Land Owner</a>
+              </li>
+              <li>
+                <a routerLink="/user/land-developer">- Land Developer</a>
+              </li>
+              <li>
+                <a routerLink="/user/builder">- Builder</a>
+              </li>
+              <li>
+                <a routerLink="/user/project-investor">- Project Investor</a>
+              </li>
+              <li>
+                <a routerLink="/user/broker">- Broker</a>
+              </li>
+              <li>
+                <a routerLink="/user/broking-house">- Broking Houses</a>
+              </li>
+              <li>
+                <a routerLink="/user/customer">- End-User</a>
+              </li>
+              <li>
+                <a routerLink="/user/facilitator">- Consultant</a>
+              </li>
+            </ul>
+          </li>
+  
+          <li>
+              <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-calendar"></i>Events</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu2">
+               <li *ngIf="show==true">
+                  <a routerLink="/events/myevents" (click)="closeNav()">My Events</a>
+               </li>
+            <li><a routerLink="/events/allevents" (click)="closeNav()">All Events</a></li>
+            <li *ngIf="uuid=='71f32252-789d-422d-a4ac-a84a7d98fd5e'"><a routerLink="/events/admin" (click)="closeNav()">Admin Panel</a></li>
+              </ul>
+            </li>
+  
+          <li *ngIf="show==true">
+            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><img
+              src="assets/images/user.png" alt="user"/>Account</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu1">
+              <li><a routerLink="/user/profile" (click)="closeNav()">My Profile</a></li>
+              <li><a routerLink="/user/change-password" (click)="closeNav()">Change Password</a></li>
+            </ul>
+          </li>
+  
+  
+       
+          <li>
+          <a (click)="faq()"><img src="assets/images/faq.png" alt="faq"/> FAQ</a>
+          </li>
+          <li>
+            <a (click)="faq()"><img src="assets/images/term.png" alt="term"/> Terms & Conditions</a>
+          </li>
+         
+          <li class="logout" *ngIf="show==true; else loginside">
+            <a (click)="Logout()"><img src="assets/images/log.png" alt="log out"/> LOG OUT </a>
+          </li>
+            <ng-template #loginside>
+              <li  class="logout">
+                <a href="http://account.rmehub.in/?referral=community"><img src="assets/images/log.png"/> LOG IN </a> 
+              </li>
+            </ng-template>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- sidebar ends here -->
+  
+  <div *ngIf="showprofile"> 
+      <div class="red">Please complete your Personal profile and Kyc Detail on our Portal <a (click)="SendLoadData()">Click Here</a></div> 
+  </div>
+  
+  <div *ngIf="showkyc"> 
+    <div class="red">Please complete your KYC Detail on our Portal <a (click)="SendDataKyc()">Click Here</a></div> 
+  </div>
+  
+  
+  
+  <!-- navbar with search section -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="fixed-nav">
+  <!--   <a href="http://www.rmehub.in/" target="_blank" class="logo_top"><img src="assets/images/logo_top.png"/></a> -->
+    
+    <a routerLink="/home" class="home-btn"><i class="fa fa-home"></i></a>
+    <ul class="nav nav-side ml-auto">  
+   <li class="nav-item display-item">   
+      <div class="dropdown">
+          <span data-toggle="dropdown" class="dropdown-toggle dropicon" aria-haspopup="true"><i class="fa fa-th"></i></span>
+          <div> 
+              <div class="dropdown-menu portaldrop">
+                  <div class="row">
+                      <div class="col-4">
+                          <a href="http://account.rmehub.in/" target="_blank"><img src="assets/images/rmicon3.png"/>Account</a>
+                      </div>
+                      <div class="col-4">
+                          <a href="https://academy.rmehub.in/" target="_blank"><img src="assets/images/rmicon2.png"/>Academy</a>
+                      </div>
+                      <div class="col-4">
+                          <a href="https://www.rmehub.in/" target="_blank"><img src="assets/images/rmicon4.png"/>RMEHUB</a>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                          <a href="https://dapp.rmehub.in/" target="_blank"><img src="assets/images/dapp.png"/>Dapp</a>
+                      </div>
+                      <div class="col-4">
+                          <a href="https://retail.rmehub.in/" target="_blank"><img src="assets/images/retail.png"/>Retail</a>
+                      </div>
+                      <div class="col-4">
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div> 
+  </li>
+
+  <li class="nav-item">
+   <div class="dropdown prof-drop"  *ngIf="show==true; else notShow">
+  
+        <span class="nav-link" id="profile" data-toggle="dropdown" aria-haspopup="true" *ngIf="showprofile; else nameshow">
+          {{username}} <i class="fa fa-angle-down"></i>
+          </span>
+  
+           <ng-template #nameshow>
+          <span class="nav-link" id="profile" data-toggle="dropdown" aria-haspopup="true">
+              {{fullname}} <i class="fa fa-angle-down"></i>
+              </span>
+            </ng-template>
+   <div> 
+          <div class="dropdown-menu">
+            <a class="dropdown-item log" (click)="popup()">My profile</a>
+            <a class="dropdown-item" routerLink="/user/change-password">Account Setting</a>
+            <a class="dropdown-item">Help</a>
+            <a class="dropdown-item log" (click)="Logout()">Log Out</a>
+        </div>
+        </div>
+      </div>
+        <ng-template #notShow>
+             <a href="http://account.rmehub.in/?referral=community"><button class="nav-link btn btn-primary">LOG IN / SIGNUP</button></a>
+        </ng-template>
+  </li>
+  <li class="nav-item sidebar-but">
+    <i id="openbutton" #openbutton class="fa fa-bars" (click)="openNav()"></i>
+  </li>
+    </ul>
+  </nav>
+  </header>
+  
+  
+  
+  <div class="modal" *ngIf="accountrme=='true'; else notShowcookies"></div>
+    
+  <ng-template #notShowcookies>
+     <div class="cookies-data animated fadeInDown fast">
+           <h6>Cookie Policy.</h6>
+           <span>We use cookies to personalise content and ads,to provide social media features and to analyse our traffic.
+              You consent to our cookies policy if you continue to use our website.</span>
+                   <button class="btn btn-primary" (click)="Cookies_Academy()">I Accept</button>
+            </div>
+  </ng-template>
+

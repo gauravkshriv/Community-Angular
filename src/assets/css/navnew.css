@@ -1,0 +1,252 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color:#f1f1f1 !important;
+}
+.invite{
+    background: #ffffff;
+    border: 0;
+    border-radius: 25px !important;
+    font-weight: 500;
+    color: #10172e;
+}
+.btn-success {
+    color: #fff !important;
+    background-color: #0da4dd !important;
+    border-color: #10172e !important;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+   z-index: 500;
+    top: 0;
+    left: 0;
+    background-color:#1f3456;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 0px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #3c78b6;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: -20px;
+    right: 7px;
+    font-size: 36px;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #7b7d7b !important;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 0px;}
+  .sidenav a {font-size: 18px;}
+  
+}
+.cur-comm-section{
+    background: white;
+    margin-top: 20px;
+    border: 1px solid #c1c1c1;
+    position: relative;
+}
+.cur-comm-section ul{
+    overflow-y: auto;
+    max-height: 235px;
+}
+.gold-btn{
+    background: #10172e !important;
+    color: white !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding: 10px !important;
+    border: 0 !important;
+    margin-bottom: 10px;
+}
+#joinedCommunity li{
+    font-size: 13.7px;
+    font-weight: 500;
+    padding:7px 10px;
+    cursor: pointer;
+    border: 0 !important;
+    border-radius: 0 !important
+}
+#joinedCommunity .list-group-item:hover{
+    background: #cdcfcd ;
+}
+.desc p{
+    margin-bottom: 10px;
+    text-align: left;
+}
+.desc{
+    /*height: 100px;
+    overflow-y: scroll;*/
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    background:linear-gradient(to bottom,white,#c7c5c5);
+}
+.commMembers ul li{
+   font-size: 15px;
+    border-top: 1px solid #ecc57a !important;
+    padding: 7px 10px;
+    padding-left: 20px;
+    border-bottom: 0 !important;
+}
+.commMembers ul li i{
+    color: #007bff;
+    cursor: pointer;
+}
+.commMembers ul li a{
+    color: #7b7d7b !important;
+    font-weight: 500;
+    font-size: 14px;
+}
+.mem{
+    max-height: 250px;
+    overflow-y: auto;
+}
+.dot{
+    border-radius: 100%;
+    background-color: green;
+    position: absolute;
+    padding: 4px;
+    top: 15px;
+    left: 7px;
+}
+.role{
+   background: transparent;
+    border-radius: 25px;
+    color: #0da4dd;
+    padding: 2px 12px;
+    margin: 0 8%;
+    font-weight: 500;
+    font-size: 12px;
+}
+.file-btn{
+    position: absolute;
+    bottom: 4px;
+    z-index: 5;
+    width: 40px;
+    left: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+.send-form{
+    position: relative;
+    width: 92%;
+}
+.icon-attach{
+    background: none;
+    border: none;
+    border-right: 1px solid #ced4da;
+    color: #dd960d;
+}
+.chat-user{
+    width: 40px !important;
+}
+.chat-user-img{
+    max-width: 9% !important;
+}
+.sender-text{
+   border-radius: 5px;
+    padding: 5px;
+}
+.receiver-text{
+    border-radius: 5px;
+    padding: 5px;
+    text-align: right;
+    border-radius: 5px;
+}
+.chat-box{
+    background-color: #f4f4f4;
+    padding: 10px 0 10px 0px;
+    margin-top: 20px;
+    background-image: linear-gradient(to bottom , rgba(10, 16, 15, 0.46), rgba(30, 24, 16, 0.51)), url(../img/chatbg.jpg) !important;
+    height: 570px;
+    background-position: center;
+    background-size: cover;
+}
+.chat-text{
+        font-size: 14px;
+}
+.chat-box h6{
+    color: #ecc57a;
+}
+.chat-box b{
+        font-size: 12px;
+    color: #0da4dd;
+}
+.sender-text,.receiver-text{
+    min-height: 50px !important;
+}
+.send-text-area{
+    position: absolute;
+    bottom: 20px;
+}
+.ck.ck-editor__main>.ck-editor__editable{
+    border-color: #205a70;
+    max-height: 300px !important;
+    height: 300px !important;
+    margin-bottom: 10px !important; 
+}
+.ck-file-dialog-button{
+    display: none;
+}
+.file-alt {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: calc(2.25rem + 2px);
+    padding: .375rem 1.8rem;
+    line-height: 1.5;
+    color: #787a7d;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+/* width */
+.mem::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+.mem::-webkit-scrollbar-track {
+    background:#f1f1f1; 
+}
+ 
+/* Handle */
+.mem::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+.mem::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+@media(max-width: 768px)
+{
+    .width-unset{
+        width:  !important;
+    }
+}

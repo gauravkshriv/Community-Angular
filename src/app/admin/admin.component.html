@@ -1,0 +1,161 @@
+<div class="event_page">
+          <div class="row">
+       <div class="land_loader"  *ngIf="lod else load2">
+                  <div class="app-loading">
+                      <div class="logo"></div>
+                      <svg class="spinner" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+                      </svg>
+                    </div>
+                </div>
+  
+                <ng-template #load2>
+            <div class="col-lg-8">
+        <div class="pb-3 mb-5">
+          <div class="event_title">
+            <h4>Events</h4>
+            <a class="invite" [routerLink]="['/events/post-event']"placement="bottom" ngbTooltip="Add Event!">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+            <div class="card">
+              <div class="card-body disc-forum">
+                <ul class="nav nav-tabs nav-fill">
+                 
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#tab1" data-toggle="tab">Approved Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#tab2" data-toggle="tab">Pending Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#tab3" data-toggle="tab">NotApproved Events</a>
+                  </li>
+                </ul>
+          
+             
+                <div class="tab-content">
+                  <div id="tab1" class="container-fluid tab-pane active p-0">
+                    <ul class="list-group discuss-list" *ngFor="let event of showevent?.approvedEventsSuccessResponseDtos">
+                        <li class="event-item">
+                            <div class="event_image event_page_left">
+                              <img class="img-responsive" src="assets/images/ev.jpg" alt="ev"/>
+                            </div>
+                          
+                           
+                          <div class="event-info event_page_left">
+                          <div class="event-place">
+                          <div class="event-title"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.category}}</div>
+                          <div class="event-placed"><i class="fa fa-map-marker"></i> {{event.address}}</div>
+                          </div>
+                          <div class="event-desc">
+                            <p>{{event.description}}</p> </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fas fa-clock"></i> {{event.eventStartTime}}  | {{event.eventEndTime}}
+                              
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> {{event.startDate.split("-").reverse().join("-")}}  | {{event.endDate.split("-").reverse().join("-")}}
+                               
+                          </div>
+                          
+                          <a class="events_read" [routerLink]="['/events/admin/events-detail']" [queryParams]="{eventId: event.id}">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          </div> 
+                        </li>
+                        <!-- <p class="discover_discuss">View All discussions</p> -->
+                    </ul>
+                  </div>
+
+                  <!--  -->
+
+                  <div id="tab2" class="container tab-pane p-0">
+                    <ul class="list-group" *ngFor="let event of showevent?.pendingEventsSuccessResponseDtos">
+                        <li class="event-item">
+                            <div class="event_image event_page_left">
+                              <img class="img-responsive" src="assets/images/ev.jpg" alt="event"/>
+                            </div>
+                          
+                           
+                          <div class="event-info event_page_left">
+                          <div class="event-place">
+                          <div class="event-title"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.category}}</div>
+                          <div class="event-placed"><i class="fa fa-map-marker"></i> {{event.address}}</div>
+                          </div>
+                          <div class="event-desc">
+                            <p><i class="fa fa-file" aria-hidden="true"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fas fa-clock"></i> {{event.eventStartTime}}  | {{event.eventEndTime}}
+                              
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> {{event.startDate.split("-").reverse().join("-")}}  | {{event.endDate.split("-").reverse().join("-")}}
+                               
+                          </div>
+                          
+                          <a class="events_read" [routerLink]="['/events/admin/events-detail']" [queryParams]="{eventId: event.id}">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          </div> 
+                        </li>
+                    </ul>
+                  </div>
+                  
+                <!--  -->
+
+                 <!--  -->
+
+                 <div id="tab3" class="container tab-pane p-0">
+                  <ul class="list-group" *ngFor="let event of showevent?.notApprovedEventsSuccessResponseDtos">
+                      <li class="event-item">
+                          <div class="event_image event_page_left">
+                            <img class="img-responsive" src="assets/images/ev.jpg" alt="event"/>
+                          </div>
+                        
+                         
+                        <div class="event-info event_page_left">
+                        <div class="event-place">
+                        <div class="event-title"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.category}}</div>
+                        <div class="event-placed"><i class="fa fa-map-marker"></i> {{event.address}}</div>
+                        </div>
+                        <div class="event-desc">
+                          <p><i class="fa fa-file" aria-hidden="true"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                        </div>
+                        <div class="event-time-duration event_page_left">
+                          <i class="fas fa-clock"></i> {{event.eventStartTime}}  | {{event.eventEndTime}}
+                            
+                        </div>
+                        <div class="event-time-duration event_page_left">
+                          <i class="fa fa-calendar" aria-hidden="true"></i> {{event.startDate.split("-").reverse().join("-")}}  | {{event.endDate.split("-").reverse().join("-")}}
+                             
+                        </div>
+                        
+                        <a class="events_read" [routerLink]="['/events/admin/events-detail']" [queryParams]="{eventId: event.id}">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </div> 
+                      </li>
+                  </ul>
+                </div>
+                
+              <!--  -->
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+  
+        <div class="col-lg-4">
+            <div class="event_title">
+            <h4></h4> 
+          </div>
+            <div class="card">
+            <div class="event-item" *ngFor="let announc of showannounce">
+                <div class="announc_event event_page_left">
+               
+              </div>
+            </div>
+            </div>
+          </div>
+        </ng-template>
+  </div>
+    </div>
+  

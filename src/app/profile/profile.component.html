@@ -1,0 +1,107 @@
+<div id="main">
+    <div class="bg-prof"></div>
+    <div class="container prof-area">
+        <div class="sub-header">
+            <h3 class="d-inline">Profile Page</h3>
+          </div>
+          <div class="land_loader" *ngIf="lod else load2">
+              <div class="app-loading">
+                  <div class="logo"></div>
+                  <svg class="spinner" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+                  </svg>
+                </div>
+            </div>
+            <ng-template #load2>
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-12">
+         <div class="prof-photo">
+              <div class="land_loader" *ngIf="lod1 else load3">
+                <div class="lod1">
+                <img id="loader" alt="loader" src='https://opengraphicdesign.com/wp-content/uploads/2009/01/loader64.gif'>
+                
+              </div>
+            </div>
+                <ng-template #load3>
+            <div class="profile_img">
+                <div class="img_sec" *ngIf="profiledata.profilepicture == null; else pimg2">
+                    <img src="assets/images/profile.jpg" alt="profile" class="card-img-top">
+            </div>
+            <ng-template #pimg2>
+                <img src="{{profiledata.profilepicture}}" alt="profile" [innerHTML]='profiledata.profilepicture' id="prof_chang_img" alt="profile" class="card-img-top">  
+              </ng-template>
+
+              <div class="overlay upload-btn-wrap">
+                <input class="form-control" type="file" id="imageUpload"  (change)="handleFileInput($event)">
+                <div class="text"><label for="imageUpload" class="upload-btn-profie"><i class="fa fa-plus"></i><span>Add Image</span></label></div>
+                
+              </div>  
+          </div>
+          </ng-template>
+           
+            </div> 
+  
+  
+  
+            <!-- <div class="remove" *ngIf="Picstatus">
+              <a (click)="RemovePic()">Delete</a>
+              </div> -->
+  
+              <div class="text-center prof-views">
+                 <u>Profile Views</u><b> 1.7 k </b>
+                </div>
+          
+              <div class="profle_view">
+
+                  <div class="row">
+                    <div class="col">
+                        <div class="rates" style="font-size: 14px;">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div> 
+                     
+                        <div class="social_prof" *ngIf="profiledata.socialResponse;  else socialink">
+                            <a  href="{{profiledata.socialResponse.facebookLink}}" target="_blank"><i class="fab fa fa-facebook mr-3"></i></a>
+                            <a  href="{{profiledata.socialResponse.instagramLink}}" target="_blank"><i class="fab fa fa-instagram mr-3"></i></a>
+                            <a  href="{{profiledata.socialResponse.website}}" target="_blank"><i class="fab fa fa-globe mr-3"></i></a>
+                            <a href="{{profiledata.socialResponse.linkedInLink}}" target="_blank"><i class="fab fa fa-linkedin mr-3"></i></a>
+                            <a href="{{profiledata.socialResponse.portfolio}}" target="_blank"><i class="fab fa fa-briefcase mr-3"></i></a>
+                          </div>
+                          <ng-template #socialink>
+                  <div class="social_prof" style="font-size: 14px;">
+                      <a  target="_blank"><i class="fab fa fa-facebook mr-3"></i></a>
+                      <a target="_blank"><i class="fab fa fa-instagram mr-3"></i></a>
+                      <a   target="_blank"><i class="fab fa fa-globe mr-3"></i></a>
+                      <a  target="_blank"><i class="fab fa fa-linkedin mr-3"></i></a>
+                      <a  target="_blank"><i class="fab fa fa-briefcase mr-3"></i></a>
+                    </div>
+                  </ng-template>
+                  </div>
+              </div>
+              </div>
+</div>
+        <div class="col-md-9 col-lg-9 col-sm-12">
+            <div class="name">
+                <!-- {{ this.deleteDataResponse || json }} -->
+               
+                <a href="http://account.rmehub.in/user/viewprofile" target="blank"><button class="btn btn-sm discuss_button prof-views">Edit Profile</button></a>
+                <a routerLink="/user/profile/addsocial"><button class="btn btn-sm discuss_button prof-views">Edit Social Media</button></a>
+                <a routerLink="/user/profile/userinfo"><button class="btn btn-sm discuss_button prof-views">View Profile</button></a>
+                 <h3 class="d-inline">{{profiledata.fullname}} <span class="pronlinestat">Online</span></h3><br>
+                      
+                      </div>
+           <router-outlet></router-outlet>
+          </div>
+      </div>
+
+    </ng-template>
+    </div>
+  </div>
+  
+  
+  
+  
+     

@@ -1,0 +1,121 @@
+
+<div class="container-fluid pt-2 filter_top main">
+    <div class="sub-header">
+      <h3 class="d-inline">End User</h3>
+      <form class="ml-lg-5 ml-md-5 ml-sm-1 float-right" action="" method="" style="width: 22%">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text p-0 border-0">
+                      <button type="submit" name="search" class="src-input-all btn src-btn pr-3 pl-3"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control src-input-all" id="inlineFormInputGroup" placeholder="search for Landowner">
+                </div>
+        </form>
+    </div>
+  <div class="row">
+      <!-- filter section -->
+      <div class="col-lg-3 col-md-3 col-sm-12 container">
+        <div class="filters">
+          <!-- market place -->
+        
+          <!--  -->
+          <div id="tab4" class="tabcontent">
+           
+          <app-filter></app-filter>
+        </div>
+  
+        <div class="tabcontent" id="tab2">
+           
+            <app-location></app-location>
+            </div>
+          <!--  -->
+  <div class="tabcontent" id="tab3">
+  <app-market></app-market>
+  </div>
+          <!-- location  -->
+  
+          <!-- certification -->
+      <div class="tabcontent" id="tab1">
+  <app-certificate></app-certificate>
+  </div>
+  
+  
+        </div>
+      </div>
+  
+      <!-- list of profiles -->
+      <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+        <div class="land-list mod-border">
+          <ul class="p-0">
+            <li class="container-fluid">
+              <div class="row">
+                <div class="col-lg-4 col-lg-4 col-sm-12">
+                  <div class="prof-img">
+                  <img src="assets/images/profile.jpg" alt="profile" class="card-img-top">
+                  <p>Shaan</p>
+                  <div class="send_msg"><i class="fa fa-envelope"></i>Send Message</div>
+                  
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                  <div class="mb-0 description">
+                    Ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                  </div>
+                  <div class="tags mb-2 mt-2">
+                    <span >Primary Market</span>
+                    <span >Secondary Market</span>
+                  </div>
+                  <div class="stars-certify">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <span class="ml-3">Certified</span>
+                  </div>
+                  <div class="location">
+                    <span>Profile viewed : </span> <a>1.5k</a>
+                    <br>
+                    <span>Location : </span> <a>United States</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            </ul>
+          </div>
+  
+          <div class="pg">
+            <ul class="pagination">
+              <li class="page-item"><a href="" class="page-link">1</a></li>
+              <li class="page-item"><a href="" class="page-link">2</a></li>
+              <li class="page-item"><a href="" class="page-link">3</a></li>
+              <li class="page-item"><a href="" class="page-link">4</a></li>
+            </ul>
+          </div>
+        
+      </div>
+  
+      <!-- trending and forums discussions -->
+      <div class="col-lg-3 col-md-3 col-sm-12 container disc-forums">
+        <div class="trend-forums ">
+        
+  <app-favdisc></app-favdisc>
+          
+  <app-trending></app-trending>
+  
+        </div>
+      </div>
+  </div>
+  </div>
+
+
+   <!-- mobile tab section  -->
+  
+   <div class="filter_sec">
+    <ul class="nav nav-tabs">
+  
+      <li class="tablinks" onclick="openCity(event, 'tab1')">Certificate</li>
+      <li class="tablinks" onclick="openCity(event, 'tab2')">Location</li>
+      <li class="tablinks" onclick="openCity(event, 'tab3')">Market</li>
+      <li class="tablinks" onclick="openCity(event, 'tab4')">Popularity</li>
+    </ul>
+  </div>

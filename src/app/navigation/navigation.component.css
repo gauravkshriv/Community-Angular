@@ -1,0 +1,103 @@
+.closebtn{cursor:pointer;}
+.fa-bars,.fa-home {
+    font-size: 24px;
+}
+
+form.ml-lg-5.sm-display
+{width: 40%;}
+
+.log {
+    cursor: pointer;
+}
+
+.prof-drop .dropdown-menu.show {
+    left: -40px;
+    border-radius: 0px;
+  
+}
+
+.dropdown-menu.show {
+    left: 0px;
+    border-radius: 0px;
+  
+}
+
+.dropdown-menu.menu_logout.show
+{
+    text-align:center;
+    padding:8px;
+}
+
+
+
+.cookies-data h5{
+    color: #007bff;
+}
+
+.dropdown-menu.portaldrop.show {
+    min-width: 350px;
+}
+
+.portaldrop.show a {
+    color: #000!important;
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+
+.cookies-data
+{
+    position:fixed;
+    width: 100%;
+    bottom: 0px;
+    padding: 10px 0px;
+    color:#fff;
+    text-align: center;
+    background-color: #000;
+    z-index: 999;
+}
+
+p.username {
+    margin: 0px;
+    padding: 5px 3px 0px 0px;
+}
+.red {
+    padding: 0px 15px;
+    color: #fff;
+    display: inline-block;
+    top: 52px;
+    position: fixed;
+    z-index: 99;
+    left: 0px;
+    background-color: #fb0101;
+    width: 100%;
+    text-align: center;
+    padding: 2px 0px;
+    font-weight:500;
+
+  }
+
+  .logout{background: #de9405 !important; cursor:pointer;}
+
+  .logo_top {
+    padding: 0px 5px 0px 0px;
+}
+  .red a {text-shadow: none;
+    cursor: pointer;
+    background-color: #0da4dd;
+    display: inline-block;
+    padding: 0px 5px;}
+
+  a.btn.btn-primary {
+    padding: 1px 10px;
+    margin: -2px 10px;
+    color: #fff !important;
+}
+
+
+.fa.fa-calendar {
+    font-size: 20px;
+    padding-right: 19px;
+}
+
+

@@ -1,0 +1,52 @@
+
+
+.top-category a .categories {
+    color: #000;
+    
+}
+.dsc-status.status_replies p
+{
+    margin:0px;
+}
+.nav-link-view
+{
+    top: 5px;
+    color: #10172e !important;
+    right: 14px;
+    position: absolute;
+}
+
+.nav-item a.nav-link
+{
+    padding: 7px 8px;
+    font-size: 14px;
+}
+/* .container.discover_form.p-1.pt-3.pb-3.mb-5
+{
+    height: 500px;
+    z-index: -1;
+} */
+
+.app-loading .spinner
+{
+    top:0px !important;
+    z-index: 999999;
+}
+.discover_forum_head {
+    float: right;
+    padding: 10px 0px;
+}
+.container.discover_form
+{
+    height: auto;
+    padding: 0px;
+   
+}
+
+/* .container.discover_form h3{
+    background-color: #f1f1f1;
+} */
+
+.forums_page {
+    padding: 0px 20px;
+}

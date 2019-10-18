@@ -1,0 +1,65 @@
+
+<!--  -->
+<div class="forums_page">
+<div class="discover_form mb-5">
+   <h3 class="text-center p-4">Discover Forums</h3>
+<div class="land_loader"  *ngIf="lod else load2">
+   <div class="app-loading">
+       <div class="logo"></div>
+       <svg class="spinner" viewBox="25 25 50 50">
+         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+       </svg>
+     </div>
+ </div>
+ <div class="card">
+ <ng-template #load2>
+   
+    
+     <div class="card-body disc-forum">
+       <ul class="nav nav-tabs nav-fill">
+         <div class="tab_cat" *ngFor="let categ of category;let i=index">
+         <li class="nav-item">
+           <a class="nav-link" [ngClass]="{'active': selectedItemIndex == i}"
+              (click)="categoryClick($event, i, categ.category)" data-toggle="tab">{{categ.category}}</a>
+            
+         </li>
+
+       </div>
+       
+       </ul>
+
+
+       <div class="tab-content">
+         <div id="tab1" class="container-fluid tab-pane active p-0">
+           <ul class="list-group discuss-list">
+             <li class="list-group-item" *ngFor="let question of questionsList">
+               <div class="row">
+                 <div class="col-sm-1">
+                   <img src="assets/images/profile.jpg" class="img-fluid" alt="Responsive image">
+                 </div>
+                 <div class="col-sm-5">
+                   <a [routerLink]="['/discussion']" [queryParams]="{qid: question.id}"><p>{{question.title}}</p></a>
+                 </div>
+                 <div class="col-sm-6">
+                     <div class="discover_forum_head">
+                         <div class="dsc-status status_replies">
+                           <span>{{question.replyCount}} Replies</span>
+                           <span>{{question.viewsCount}}+ Views</span>
+                           <span *ngIf="question.lastReply">Last Reply: {{question.lastReply | date}} </span>
+                           <p>Started by {{question.user.username}} on community </p>
+                         
+                         </div></div>
+                 </div>
+               </div>
+             </li>
+             <a *ngIf="questionsList" routerLink="/posts" [queryParams]="{category: selectedCategoryName}"><p class="discover_discuss">View
+               All discussions</p></a>
+           </ul>
+         </div>
+       </div>
+     </div>
+   </ng-template>
+   </div>
+
+   </div>
+  </div>

@@ -1,0 +1,89 @@
+<div class="land_loader" *ngIf="lod else load2">
+    <div class="app-loading">
+        <div class="logo"></div>
+        <svg class="spinner" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+        </svg>
+      </div>
+  </div>
+  
+  <ng-template #load2>
+  <div id="main">
+  <div class="container-fluid " style="margin-top: 5rem !important">
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-sm-12"></div>
+      <!-- discussion start -->
+      <div class="col-lg-10 col-md-10 col-sm-12">
+        <div class="name">
+          <h3 class="d-inline">{{capitalizeFirstLetter(categoryName)}}</h3>
+        </div>
+
+        <!-- Start Discussion -->
+        <div class="discussion" *ngFor="let question of questionsList">
+          <!--General Real Estateart -->
+          <div class="head-of-discussion p-2">
+            <div class="row">
+              <!-- author of discussion (details) -->
+              <div class="discussion_single_view">
+        
+              <a class="dispost" [routerLink]="['/user/userprofile',question.user.uuid]"> <div class="author-info author_img">
+                <img src="assets/images/profile.jpg" class="rounded-circle card-img-top" alt="profile">
+                {{question.user.username}}
+              </div></a>
+              <!-- heading text , replies and time -->
+              <div class="discussion_post_heading">
+                <!-- <div class="post_head">
+                  <i class="fa fa-share-square"></i> <span> Share</span>
+                </div> -->
+                <div class="heading-time">
+                <a [routerLink]="['/discussion',question.id]">         
+                  <div class="dsc-status status_replies">
+                    <h5>{{capitalizeFirstLetter(question.title)}}</h5>
+                    <span>{{question.replyCount}} Replies</span>
+                    <span>{{question.viewsCount}}+ Views</span>
+                    <span *ngIf="question.lastReply">Last Reply: {{question.lastReply | date}} </span>
+                    <span>Posted on: {{question.postedOn | date}}</span>
+                    <!-- <span>By: {{question.user.fullname}}</span> -->
+                  </div>
+                </a></div>
+                <div class="discussion-info">
+                 
+                    <div [innerHTML]="question.description.substr(0,500)+'.....'" ></div>
+                    <a [routerLink]="['/discussion',question.id]"><p *ngIf="question.description.length > 30">Read More</p></a>
+                  </div>
+                  <!-- <div class="dsc-status post_option">
+                    <ul>
+                      <li><span class="mr-3" style="font-size: 17px"><button class="cursor_pointer" [ngClass]="{'likeDislikeBtnClr':likeOrDislikeStatus(question)==true}" (click)="changeLikeStatus(true,question.id)"><i class="far fa-thumbs-up"></i></button> {{question.likesCount}}</span>
+                      </li>
+                      <li><span class="ml-3" style="font-size: 17px"><button class="cursor_pointer" [ngClass]="{'likeDislikeBtnClr':likeOrDislikeStatus(question)==false}" (click)="changeLikeStatus(false,question.id)"><i class="far fa-thumbs-down"></i></button> {{question.dislikesCount}}</span>
+                      </li>
+                    </ul>
+                  </div> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- discussion replies (one "row" one reply) -->
+        <!-- discussion replies end here -->
+
+
+        <!-- discussion replies end here -->
+
+
+      </div>
+      <!-- whole discussion ended here -->
+
+
+      <!-- similar discussions section links of other discussion -->
+      <div class="col-lg-1 col-md-1 col-sm-12"></div>
+      <!-- similar discussion ended here -->
+
+
+    </div>
+  </div>
+
+
+</div>
+</ng-template>

@@ -1,0 +1,127 @@
+<div class="event_page">
+<div class="row">
+    <div class="col-lg-8">
+    <div class="event_title add"><h4>Events Registration</h4></div>
+  <div class="add_evnt">
+     
+    <div class="events">
+      <ul>
+        <li class="active"><a routerLink="/events/post-event">Event</a></li>
+        <li><a routerLink="/events/announcements/add">Announcement</a></li>
+      </ul>
+    </div>
+
+    <div class="event_registration">
+<form class="form-signin">
+
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Invitation</label>
+          <div class="col-sm-10">
+            <div class="form-group">
+              <input type="text" class="form-control"  name="invitee" [(ngModel)]="invitee" placeholder="">
+                </div>
+           </div>
+        </div>
+
+
+
+          <!-- <div class="form-group row">-->
+           
+    <!-- <div class="form-group row">-->
+     
+
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Attachement</label>
+                <div class="col-sm-10">
+                    <input type="file" id="imageUploadadd" multiple="multiple" (change)="fileuploads($event)" name="file" class="upload-file">
+                </div>
+              </div>
+      
+              <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+                  <li *ngFor="let image of images">
+                      <a href="javascript:void(0)" (click)="deleteImage(image)"><i class="fa fa-trash"></i></a>                      
+                    <!-- <h6>Attachement</h6> -->
+                    <div class="img_sec" *ngIf="image.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
+                      <img src="assets/images/word-icon.png" alt="word-icon">
+                     </div>
+
+              <div class="img_sec" *ngIf="image.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">
+                <img src="assets/images/ppt-icon.png" alt="ppt-icon">
+        </div>
+
+        <div class="img_sec" *ngIf="image.type === 'application/vnd.ms-excel'">
+          <img src="assets/images/excel-icon.png" alt="excel-icon">
+  </div>
+
+        <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+          <img src="assets/images/pdf-icon.png" alt="pdf-icon">
+  </div>  
+      </li>
+                </ul>
+                <!--  -->
+
+
+<!-- <div class="form-group row">-->
+     
+
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Gallery</label>
+    <div class="col-sm-10">
+        <input type="file" id="imageUploadadd" multiple="multiple" (change)="fileGalleryuploads($event)" name="file" class="upload-file">
+    </div>
+  </div>
+
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of images">
+          <a href="javascript:void(0)" (click)="deleteImage(image)"><i class="fa fa-trash"></i></a>                      
+          <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+            <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+            <!-- {{image.type}} -->
+          </div>
+          <div class="img_sec" *ngIf="image.type === 'image/png'">
+            <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+          </div>
+          <!-- <div class="img_sec" *ngIf="image.type === ">
+            <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+          </div> -->
+                     
+</li>
+    </ul>
+    <!--  -->
+       
+<div class="form-group row">
+    <div class="col-sm-2">
+      </div>
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" (click)="AddEvent()">Register Event</button>
+
+      </div>
+      
+      </div>
+  </form>
+</div>
+
+
+</div>
+</div>
+
+
+<div class="col-lg-4">
+    <div class="event_title">
+    <h4>Up Coming Events</h4> 
+  </div>
+    <div class="card">
+    <div class="event-item">
+        <div class="announc_event event_page_left">
+      
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- <ng-datepicker [(ngModel)]="date"></ng-datepicker> -->

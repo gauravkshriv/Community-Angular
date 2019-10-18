@@ -1,0 +1,14 @@
+<div class="similar-dsc all-time-fav mod-border">
+  <h5>Monthly Trending Discussions</h5>
+  <ul>
+    <li *ngFor="let monthly of monthlyTrending">
+      <a [routerLink]="['/discussion',monthly.id]">{{capitalizeFirstLetter(monthly.title)}}</a>
+      <div class="dsc-status">
+        <span>{{monthly.replyCount}} Replies</span><b> | </b>
+        <span>{{monthly.viewsCount}} Views</span>
+        <span *ngIf="monthly.lastReply"><b> | </b>Last Reply: {{monthly.lastReply | date}} </span>
+      </div>
+
+    </li>
+  </ul>
+</div>

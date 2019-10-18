@@ -1,0 +1,70 @@
+.community_sec
+{
+    margin-top: 20px;
+}
+
+.list-group-item:hover
+{
+    z-index: 0;
+}
+.commMembers {
+    background-color: #fff;
+    display: inline-block;
+    margin: 15px 0px 0px 0px;
+    width: 100%;
+}
+.myClass span, .myClass {
+    cursor: pointer;
+}
+
+.tab-content .list-group
+{
+    margin-top: 0px !important;
+}
+.disc-forum ul li
+{
+    margin: auto;
+    
+}
+.disc-forum {
+    padding: 5px 0px;
+    margin: 11px 0px 0px 0px;
+    background: none;
+    box-shadow: none;
+}
+.chatmodal img
+{
+    width:100%;
+}
+
+#openimage
+
+ul.groupmemberid {
+    list-style-type: none;
+    text-transform: capitalize;
+    padding: 0px;
+}
+
+.commMembers ul li i
+{
+    color:#fff;
+    padding: 3px 5px 0px 0px;
+}
+
+.options
+{
+    float: right;
+    cursor: pointer;
+    color: #fff;
+    padding: 0px 20px
+}
+.modal.show .modal-dialog
+{
+    transform:translate(0,-30%);
+}
+.fa-info-circle {
+    float: right;
+    font-size: 18px;
+}
+
+

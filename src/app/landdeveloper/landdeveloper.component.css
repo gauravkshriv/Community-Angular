@@ -1,0 +1,19 @@
+.page-link.active
+{
+ background-color: #0da4dd;
+ color: #fff;
+ border: 1px solid #ccc;
+}
+
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+#framemodel_box
+{
+    display: none;
+}

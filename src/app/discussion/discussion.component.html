@@ -1,0 +1,198 @@
+<div id="main" *ngIf="question">
+    <div class="container-fluid " style="margin-top:1rem !important">
+      <div class="row">
+        <!-- discussion start -->
+        <div class="col-lg-8 col-md-8 col-sm-12 ">
+  
+          <div class="discussion">
+            <!--General Real Estateart -->
+            <div class="head-of-discussion p-2">
+              <div class="row">
+                <!-- author of discussion (details) -->
+                <div class="discussion_single_view">
+                  <a class="dispost" [routerLink]="['/user/userprofile',question.user.uuid]"> <div class="author-info author_img">
+                  <img src="assets/images/profile.jpg" class="rounded-circle card-img-top" alt="profile">
+                  {{question.user.username}}
+                </div></a>
+                  <!-- heading text , replies and time -->
+                  <div class="heading-time">
+                    <!-- <div class="share"><i class="fa fa-share-square"></i><span> Share</span></div> -->
+                    <div class="dsc-status status_replies">
+                      <h5>{{capitalizeFirstLetter(question.title)}}</h5>
+                      <span>{{question.replyCount}} Replies</span>
+                      <span>{{question.viewsCount}}+ Views</span>
+                      <span *ngIf="question.lastReply">Last Reply: {{question.lastReply | date}} </span>
+                      <span>Posted on: {{question.postedOn | date}}</span>
+                      <!-- <span>By: {{question.user.fullname}}</span> -->
+                    
+                    </div></div>
+                  </div>
+              <!--  -->
+                  <div class="discussion-info">
+                    <div [innerHTML]="question.description"></div>
+                  </div>
+                  <div class="dsc-status post_option"  >
+                    <ul *ngIf="show==true; else likelogin">
+                      <li><span class="mr-3" style="font-size: 17px"><button class="cursor_pointer"
+                                                                             [ngClass]="{'likeDislikeBtnClr':likeOrDislike==true}" (click)="changeLikeStatus(true,question.id)"><i class="fa fa-thumbs-up"></i></button> {{question.likesCount}}</span>
+                      </li>
+                      <li><span class="ml-3" style="font-size: 17px"><button class="cursor_pointer"
+                                                                             [ngClass]="{'likeDislikeBtnClr':likeOrDislike==false}" (click)="changeLikeStatus(false,question.id)"><i class="fa fa-thumbs-down"></i></button> {{question.dislikesCount}}</span>
+                      </li>
+                    </ul>
+                  
+                      <ng-template #likelogin>
+                         <ul>
+                                                <li><span class="mr-3" style="font-size: 17px"><button class="cursor_pointer"
+                            (click)="swallogin()"><i class="fa fa-thumbs-up"></i></button></span>
+  </li>
+  <li><span class="ml-3" style="font-size: 17px"><button class="cursor_pointer"
+                            (click)="swallogin()"><i class="fa fa-thumbs-down"></i></button></span>
+  </li> </ul>
+                        </ng-template>
+                     
+    
+                   
+                   
+                  </div>
+  
+                  <div class="card attchement_sec">
+  <a class="card-header" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Attachments
+                        </a>
+                    </div>
+                 
+                 
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                          No Attachments Available
+                        </div>
+                      </div>
+                  <!-- <div class="dsc-status post_option" *ngIf="question.attachment.length">
+                    Attachments:
+                    <ul>
+                      <li *ngFor="let attachment of question.attachment">
+                        <img *ngIf="checkImage(attachment.file)===true" src="{{attachment.file}}" class="attach_size"/>
+                        <a  *ngIf="checkImage(attachment.file)===false" href="{{attachment.file}}" class="attach_size">Download</a>
+                      </li>
+                    </ul>
+                  </div> --> 
+  
+                
+              </div>
+            </div>
+          </div>
+          <!-- heading of discussion end here -->
+  
+          <!-- <span>Read more</span>
+          <span>Read Less</span> -->
+  
+  
+          <!-- comment in discussion post -->
+  
+          <div class="comment">
+            <div class="comment_count" >
+            <h5 *ngIf="show==true; else notcount">Comments : {{question.replyCount}}</h5>
+            <ng-template #notcount>
+              <h6>Please Login to comment and reply on our portal</h6><a href="http://account.rmehub.in/?referral=community"><button class="btn btn-primary disc">Log In</button></a>
+            </ng-template>
+          </div>
+            <!--     -->
+  
+            <div class="inner_com"  *ngIf="show">
+                <form class="form-horizontal" action="#">
+                  <div class="form-group">
+                    <div class="label_form">
+                      <label class="control-label" for="email">{{username}}:</label>
+                    </div>
+                    <div class="input_text_sec">
+                      <input [(ngModel)]="commentinput" name="commentinput"  type="text" class="form-control" id="inputText" (keyup)="postComment($event)" placeholder="Enter Your Comment................" >
+                    </div>
+                    <!--comment button start  -->
+                    <!-- <div class="input_text_comment">
+                      <button class="btn btn-outline-success" (click)="postComment(commentInput.value,question.id)"><i class="fa fa-comment"></i> Comment</button>
+                    </div> -->
+                    <!--  comment button end -->
+                  </div>
+                </form>
+              </div>
+  
+              <!--  -->
+  
+            <div class="inner_com" *ngFor="let comment of question.comments">
+              
+              <div class="comment_content">
+                  <div class="date_right">{{comment.postenOn | myDate}}</div>
+  
+               <div class="user_blog_name">    
+                <a [routerLink]="['/user/userprofile',comment.user.uuid]"> <span class="user_color">{{comment.user.username}}</span></a>
+                <div class="comment_reply_pro">
+                  <a [routerLink]="['/user/userprofile',comment.user.uuid]"> <img src="assets/images/profile.jpg" class="rounded-circle card-img-top" alt="profile"></a>
+                <span [innerHTML]="comment.comment"></span>
+              </div>
+            </div>
+              
+              </div>
+  
+              <div class="comment_reply_sec">
+                <div class="replies_comm"  *ngIf="show">
+                    <form class="form-horizontal" action="#">
+                      <div class="form-group">
+                        <div class="label_form">
+                          <label class="control-label" for="email">Reply :</label>
+                        </div>
+                        <div class="input_text_sec">
+                          <input  id='commentReplyInput{{comment.id}}'  type="text" (keyup)="postCommentReply($event,comment.id)" name="name" placeholder="Enter Replies......."/>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!--  -->
+                <div class="dsc-status comment_sec">
+                  <div class="reply_block" *ngFor="let commentReply of comment.commentReplies">
+                    <div class="author-info">
+                      <a [routerLink]="['/user/userprofile', commentReply.user.uuid]"> <img src="assets/images/profile.jpg" alt="profile" class="rounded-circle card-img-top" style="width: 45%"></a>
+                  </div>
+                    <div class="reply-text">
+                      <a [routerLink]="['/user/userprofile', commentReply.user.uuid]"><p class="user_color">{{commentReply.user.username}}</p></a>
+                      <!-- <div class="text-right text-secondary font-weight-bold">{{commentReply.postenOn | myDate}}</div> -->
+                      <div class="reply_div" [innerHTML]="commentReply.reply">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+  
+              <!--  -->
+           
+            </div>
+            <!--  -->
+           
+            <!--  -->
+          </div>
+  
+  
+          <!-- discussion replies end here -->
+        </div>
+        <!-- whole discussion ended here -->
+  
+        <!-- similar discussions section links of other discussion -->
+        <div class="col-lg-4 col-md-4 col-sm-12 container disc-forums">
+          <div class="trend-forums ">
+  
+            <app-favdisc></app-favdisc>
+  
+            <app-trending></app-trending>
+  
+  
+          </div>
+        </div>
+        <!-- similar discussion ended here -->
+  
+  
+      </div>
+    </div>
+  
+  
+  </div>
+  

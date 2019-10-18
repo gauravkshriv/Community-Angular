@@ -1,0 +1,14 @@
+<div class="similar-dsc all-time-fav mod-border">
+  <h5>All Time Favourite Discussions</h5>
+  <ul>
+    <li *ngFor="let alltime of AllTimeTrending">
+      <a [routerLink]="['/discussion',alltime.id]">{{capitalizeFirstLetter(alltime.title)}}</a>
+      <div class="dsc-status">
+        <span>{{alltime.replyCount}} Replies</span><b> | </b>
+        <span>{{alltime.viewsCount}} Views</span>
+        <span *ngIf="alltime.lastReply"><b> | </b>Last Reply: {{alltime.lastReply | date}} </span>
+      </div>
+
+    </li>
+  </ul>
+</div>

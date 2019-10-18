@@ -1,0 +1,11 @@
+input[type=checkbox], input[type=radio]
+{
+    height: 21px;
+    width: 19px;
+}
+
+
+/* .location.left_sec {
+    height: 300px;
+    overflow: scroll;
+} */

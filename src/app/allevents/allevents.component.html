@@ -1,0 +1,151 @@
+
+  
+ 
+      <div class="event_page">
+          <div class="row">
+       <div class="land_loader"  *ngIf="lod else load2">
+                  <div class="app-loading">
+                      <div class="logo"></div>
+                      <svg class="spinner" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5"  style="stroke:#0da4dd"/>
+                      </svg>
+                    </div>
+                </div>
+  
+                <ng-template #load2>
+            <div class="col-lg-8">
+        <div class="pb-3 mb-5">
+          <div class="event_title">
+            <h4>Events</h4>
+          </div>
+            <div class="card">
+              <div class="card-body disc-forum">
+                <ul class="nav nav-tabs nav-fill">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#tab1" data-toggle="tab">PAST EVENTS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#tab2" data-toggle="tab">ONGOING EVENTS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#tab3" data-toggle="tab">UPCOMING EVENTS</a>
+                  </li>
+                </ul>
+          
+             
+                <div class="tab-content">
+                  <div id="tab1" class="container-fluid tab-pane active p-0">
+                    <ul class="list-group discuss-list" *ngFor="let event of showevent?.pastEvents">
+                        <li class="event-item">
+                            <div class="event_image event_page_left">
+                              <img class="img-responsive" src="assets/images/ev.jpg"/>
+                            </div>
+                          
+                           
+                          <div class="event-info event_page_left">
+                          <div class="event-place">
+                          <div class="event-title"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.category}}</div>
+                          <div class="event-placed"><i class="fa fa-map-marker"></i> {{event.address}}</div>
+                          </div>
+                          <div class="event-desc">
+                            <p>{{event.description}}</p>
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fas fa-clock"></i> {{event.eventStartTime}}  | {{event.eventEndTime}}
+                              
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> {{event.startDate.split("-").reverse().join("-")}}  | {{event.endDate.split("-").reverse().join("-")}}
+                               
+                          </div>
+                          
+                          <a class="events_read" [routerLink]="['/events/events-detail']" [queryParams]="{eventId: event.id}">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          </div> 
+                        </li>
+                        <!-- <p class="discover_discuss">View All discussions</p> -->
+                    </ul>
+                  </div>
+                  <div id="tab2" class="container tab-pane p-0">
+                    <ul class="list-group discuss-list" *ngFor="let event of showevent?.ongoingEvents">
+                        <li class="event-item">
+                            <div class="event_image event_page_left">
+                              <img class="img-responsive" src="assets/images/ev.jpg"/>
+                            </div>
+                          
+                           
+                          <div class="event-info event_page_left">
+                          <div class="event-place">
+                          <div class="event-title"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.category}}</div>
+                          <div class="event-placed"><i class="fa fa-map-marker"></i> {{event.address}}</div>
+                          </div>
+                          <div class="event-desc">
+                              <p>{{event.description}}</p>
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fas fa-clock"></i> {{event.eventStartTime}}  | {{event.eventEndTime}}
+                              
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> {{event.startDate.split("-").reverse().join("-")}}  | {{event.endDate.split("-").reverse().join("-")}}
+                               
+                          </div>
+                          
+                          <a class="events_read" [routerLink]="['/events/events-detail']" [queryParams]="{eventId: event.id}">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          </div> 
+                        </li>
+                    </ul>
+                  </div>
+                  <div id="tab3" class="container-fluid tab-pane p-0">
+                    <ul class="list-group discuss-list"  *ngFor="let event of showevent?.upcomingEvents">
+                        <li class="event-item">
+                            <div class="event_image event_page_left">
+                              <img class="img-responsive" src="assets/images/ev.jpg"/>
+                            </div>
+                          
+                          <div class="event-info event_page_left">
+                          <div class="event-place">
+                          <div class="event-title"><i class="fa fa-calendar" aria-hidden="true"></i> {{event.category}}</div>
+                          <div class="event-placed"><i class="fa fa-map-marker"></i> {{event.address}}</div>
+                          </div>
+                          <div class="event-desc">
+                              <p>{{event.description}}</p>
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fas fa-clock"></i> {{event.eventStartTime}}  | {{event.eventEndTime}}
+                              
+                          </div>
+                          <div class="event-time-duration event_page_left">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> {{event.startDate.split("-").reverse().join("-")}}  | {{event.endDate.split("-").reverse().join("-")}}
+                               
+                          </div>
+                          
+                          <a class="events_read" [routerLink]="['/events/events-detail']" [queryParams]="{eventId: event.id}">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                          </div> 
+                        </li>
+                  </ul>
+                  </div>
+                
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+  
+        <div class="col-lg-4">
+            <div class="event_title">
+            <h4>Announcements</h4> 
+          </div>
+            <div class="card">
+            <div class="event-item" *ngFor="let announc of showannounce">
+                <div class="announc_event event_page_left">
+               
+              </div>
+            </div>
+            </div>
+          </div>
+        </ng-template>
+  </div>
+    </div>
+  

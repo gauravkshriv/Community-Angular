@@ -1,0 +1,102 @@
+
+  .card1{
+    background: white;
+    /* border: 2px solid; */
+    margin: 10px;
+    /* border-radius: 5px; */
+    box-shadow: 2px 2px 5px grey;
+    transition: all .2s ease-in-out;
+    }
+    .card-img1{border-top-left-radius: 0px; height: 170px;width: 100%;opacity: 0.9;}
+    .body1{font-weight: 700; font-size: 2em;    text-shadow: 4px 0px 5px #333; }
+    .body2{font-weight: 700;font-size: 1.65em;}
+    a{color: black; }
+    .card1:hover{transform: scale(1.05);}
+    a:hover{text-decoration: none; color: white !important}
+    a.btn{color: #333 !important; z-index: 1; position: absolute; padding: 26px 6px;}
+    .prev{position: absolute;top:20%;left: -10px }
+    .next{position: absolute;top:20%;right: -10px}
+    .indicators1{bottom: 11px;}
+    .inner1{padding: 0 12px;}
+    .fluid1{width: 95%;    margin-top: 20px;}
+    h3{text-align: center;}
+     .btn-primary:hover {
+    color: #fff !important;
+    background-color: #0069d9;
+    border-color: #0062cc;
+    }
+    .carousel-inner {
+    position: relative;
+    width: 97%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.disc-forum{
+    padding:0 10px 10px 10px;
+    box-shadow: 2px 3px 5px #b3b3b3;
+}
+.disc-forum ul li{
+    font-size: 15px;
+    font-weight: 700;
+    padding-top: 14px;
+}
+.nav-tabs .nav-link:hover {
+    border-color: #333;
+    background-color: #f4f4f4;
+    border-radius: 0;
+}
+.disc-forum ul li a{
+    color: #333 !important;
+    padding-top:10px !important;
+}
+#mainSideBar ul li .nav-link{
+     color: #333 !important;
+    padding-top:10px !important;
+
+}
+#mainSideBar ul li .nav-link.active{
+   color: white !important;
+    padding-top: 10px !important;
+
+}
+.card{
+    box-shadow: 1px 1px 5px grey;
+}
+.card-footer{
+   font-size: 15px;
+    padding: 9px;
+    font-weight: 500;
+    background: white;
+}
+.events{
+    height: 150px;
+    background-color: #dddad7;
+    border-radius: 2px;
+    box-shadow:0px 0px 3px #6e6e6e;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    margin:10px 0;
+}
+.events:hover{
+    box-shadow:0px 0px 15px #6e6e6e;
+    transition: 0.5s;
+    transform: scale(1.09);
+}
+.events h5{
+    color: white;
+    font-size: 23px;
+    text-shadow: 1px 1px 5px #333;
+}
+.events p{
+    font-size: 20px;
+    font-weight: 500;
+}
+.events img{
+   width: 70px;
+    box-shadow: 0px 0px 8px #333;
+    padding: 5px;
+    border-radius: 5px;
+    background: #f1f1f1bd;
+}

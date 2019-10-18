@@ -1,0 +1,33 @@
+   
+<div class="backimg">
+    <div class="section_start">
+           
+            <div class="sign_logo">
+                <img src="assets/images/rme.png" alt="logo"/>
+                  </div>
+                  <div class="form_section">
+                 <form name="form">
+                  <div class="form-group">
+                         <label>Please Enter New Password</label>
+                         <i class="fa fa-user-o" aria-hidden="true"></i>
+                         <input type="password" class="form-control" name="resetPassword"  [(ngModel)] = "resetPassword" placeholder="New Password" required>
+                         </div>
+                         <!--  -->
+
+                                           
+                     <div class="form-group">
+                            <label>Please Enter Confirm Password</label>
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <input type="password" class="form-control" name="confirmPassword"  [(ngModel)] = "confirmPassword" placeholder="Confirm Password" required>
+                            </div>
+                            <!--  -->
+
+                  <button class="btn btn-primary" type="submit" (click)="ResetPasswordConfirm()"> Reset Password </button>
+                      <!-- <div class="form-group" *ngIf="true">{{invalidUser | json }}</div>  -->
+                   </form>
+                 </div>
+              
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,27 @@
+
+<div class="backimg">
+    <div class="section_start">
+           
+            <div class="sign_logo">
+                <img src="assets/images/rme.png" alt="logo"/>
+                  </div>
+                  <div class="form_section">
+                      <h3>Password Help !</h3>
+                      <p>Enter your email address.You will receive an email with a link to reset your password.</p>
+                    <form name="form">
+                     <div class="form-group">
+                         <i class="fa fa-user-o" aria-hidden="true"></i>
+                         
+                         <input type="emal" class="form-control" name="email"  [(ngModel)] = "email" placeholder="Please Enter Email ID" required>
+                        <!-- <div class="form-control alert alert-danger" *ngIf="(this.serverData.status==false) && (this.serverData.msg.length==1)" >{{this.serverData.msg[0]}}</div>  -->
+                       </div>
+                       <!-- <div class="form-control alert alert-danger" *ngIf="(this.serverData.status==false)">{{this.serverData.msg}}</div>   -->
+                  <button class="btn btn-primary" type="submit" (click)="ResetPass()">Retrive Password</button>
+                      <!-- <div class="form-group" *ngIf="true">{{invalidUser | json }}</div>  -->
+                   </form>
+                 </div>
+              
+    </div>
+  </div>
+  
+  

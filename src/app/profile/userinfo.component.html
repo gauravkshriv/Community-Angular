@@ -1,0 +1,95 @@
+<div class="prof-info">
+      
+       
+        <div class="loc-market pb-2">
+            <div class="profile_row">
+<table class="table-responsive">
+ <tr>
+   <td> <h6>Username :</h6></td>
+   <td> <p>{{profiledata.username}}</p></td>
+ </tr>
+ <tr>
+   <td> <h6>Date of Birth :</h6></td>
+   <td><p>{{profiledata.dob}}</p> </td>
+ </tr>
+ <tr>
+    <td>  <h6>Location :</h6></td>
+    <td> <p>{{profiledata.country}}</p> <p>{{profiledata.state}}</p><p>{{profiledata.city}}</p></td>
+  </tr>
+  <tr>
+      <td> <h6>Occupation :</h6></td>
+      <td> <p *ngIf="profiledata._occ== ''; else occ">None</p>
+        <ng-template #occ>
+        <p class="data_occ" *ngFor="let data of profiledata?._occ">{{data}}</p> 
+        </ng-template></td>
+    </tr>
+    <tr>
+        <td>   <h6>Market Place :</h6></td>
+        <td>  <p *ngIf="profiledata.market[0]== null; else mark">None</p>
+          <ng-template #mark>
+          <p *ngFor="let data of profiledata?.market">{{data}}</p> 
+          </ng-template></td>
+      </tr>
+
+      <tr>
+        <td> <h6>Specialization :</h6></td>
+        <td><p *ngIf="profiledata._splz[0]== null; else splz">None</p>
+<ng-template #splz>
+           <p class="data_occ" *ngFor="let data of profiledata?._splz">{{data}}</p> 
+          </ng-template></td>
+      </tr>
+
+      <tr>
+          <td> <h6>Particpation Type :</h6></td>
+          <td>  
+              <p *ngIf="profiledata._ptype[0]==null; else partictype">None</p>
+            <ng-template #partictype>
+                <p *ngFor="let data of profiledata?._ptype">{{data}}</p>
+            
+          </ng-template>
+</td>
+        </tr>
+
+        <tr>
+            <td> <h6>Other Occupation :</h6></td>
+            <td> 
+                <p *ngIf="(profiledata.extraData?.otherOccupation=== null) ||
+                (profiledata.extraData?.otherOccupation=== '') ; else otherocc">None</p>
+              <ng-template #otherocc>
+           
+               <p *ngFor="let data of profiledata.extraData?.otherOccupation">{{data}}</p>
+             
+            </ng-template></td>
+          </tr>
+
+          <tr>
+              <td> <h6>Vendor :</h6></td>
+              <td>
+                  <p  *ngIf="(profiledata.extraData?.vendor=='') || (profiledata.extraData?.vendor==null); else vendor">None</p>
+                <ng-template #vendor>
+            
+                    <p *ngFor="let data of profiledata.extraData?.vendor">{{data}}</p>  
+               
+              </ng-template></td>
+            </tr>
+
+            <tr>
+              <td> <h6>KYC Status :</h6></td>
+              <td><p>{{profiledata._kst}}</p> </td>
+            </tr>
+
+            <!-- <tr>
+                <td> <h6>Email ID :</h6></td>
+                <td> <p>{{profiledata.email}}</p> </td>
+              </tr>
+
+              <tr>
+                  <td> <h6>Phone Number :</h6></td>
+                  <td> <p>{{profiledata.phoneNumber}}</p> </td>
+                </tr> -->
+      
+      
+</table>
+</div> </div>
+     
+    </div>

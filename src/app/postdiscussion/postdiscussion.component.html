@@ -1,0 +1,109 @@
+<div class="container-fluid pt-2 filter_top main">
+  <div class="post_discussion">
+    <div class="row">
+      <div class="col-lg-8 col-sm-12 col-md-12">
+        <div class="post_sec">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Start a discussion</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form>
+                <div class="row">
+                  <div class="col-lg col-md col-sm-12 form-group">
+                    <input type="text" class="form-control" name="title" placeholder="Post title or question"  [(ngModel)]="title">
+                  </div>
+                  <div class="col-lg col-md col-sm-12 form-group">
+                    <select class="form-control"  [(ngModel)]="selectedcateg" name="selectedcateg" name="type">
+                      select categ
+                      <option *ngFor="let categ of category" >{{categ.category}}</option>
+                    </select>
+
+                  </div>
+                </div>
+                <ckeditor [editor]="Editor"></ckeditor>
+                <!-- <textarea name="editor1" id="editor1" rows="10" cols="80">This is some sample content.</textarea> -->
+                <!-- accept="image/* -->
+                <div class="custom-file form-group mb-3">
+                  <div class="upload-btn-wrap">
+                    <input type="file" id="imageUpload" multiple="multiple" (change)="fileuploads($event)" name="file" class="upload-file">
+                    <label for="imageUpload" class="upload-btn"><i class="fa fa-plus"></i><span> Add Image</span></label></div>
+                    <!-- <label for="imageUpload" class="upload-btn"><i class="fa fa-plus"></i><span> Add Attachement</span></label></div> -->
+
+
+                </div>
+                <!-- <span [innerHTML] ="result"></span>  -->
+                
+                <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+                    <li *ngFor="let image of images">
+                        <a href="javascript:void(0)" (click)="deleteImage(image)"><i class="fa fa-trash"></i></a>                      
+                        <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+                          <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+                          <!-- {{image.type}} -->
+                        </div>
+                        <div class="img_sec" *ngIf="image.type === 'image/png'">
+                          <img [src]="image.url" alt="no image" style="height:100px; width:100px;">
+                        </div>
+                        <!-- <h6>Attachement</h6> -->
+                        <div class="img_sec" *ngIf="image.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
+                          <img src="assets/images/word-icon.png" alt="word">
+                          
+                        </div>
+
+                  <div class="img_sec" *ngIf="image.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">
+                    <img src="assets/images/ppt-icon.png" alt="ppt">
+            </div>
+
+            <div class="img_sec" *ngIf="image.type === 'application/vnd.ms-excel'">
+              <img src="assets/images/excel-icon.png" alt="excel">
+      </div>
+
+            <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+              <img src="assets/images/pdf-icon.png" alt="pdf">
+      </div>
+      
+           
+      <!-- <td></td> -->
+                
+    </li>
+                  </ul>
+
+                <div class="m10 center">
+                      <!-- <button type="button" name="submit"  class="btn btn-primary" (click)="Save()">Send Image
+              </button> -->
+
+
+        <button style="float: right;" type="button" name="submit" class="btn btn-primary" (click)="postDiscussion()">
+                <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span>Post Discussion
+        </button>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12 container disc-forums">
+        <div class="trend-forums ">
+
+          <app-favdisc></app-favdisc>
+
+          <app-trending></app-trending>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

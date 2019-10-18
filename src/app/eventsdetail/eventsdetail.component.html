@@ -1,0 +1,242 @@
+<div class="event_page">
+    <div class="events_detai_inner">
+        <div class="sub-header">
+            <h4>Events Name</h4>
+        
+          </div>
+      <div class="row">
+    <div class="col-lg-9">
+      <div  class="events_slider_left">
+        <div class="row">
+<div class="col-sm-7 col-xs-12 p0 details-page-slider-wrp">
+    <div id="demosec"  class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demosec" data-slide-to="0" class="active"></li>
+          <li data-target="#demosec" data-slide-to="1"></li>
+          <li data-target="#demosec" data-slide-to="2"></li>
+        </ul>
+        
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/images/chatbg.jpg" alt="Los Angeles">
+          </div>
+          
+          <div class="carousel-item">
+            <img src="assets/images/chatbg.jpg" alt="Chicago">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/chatbg.jpg" alt="New York">
+          </div>
+        </div>
+        
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demosec" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demosec" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+</div>
+
+<div class="col-sm-5 col-xs-12">
+<div class="detail_content">
+<div class="heading">
+<h4 class="title">{{eventdata.category}}</h4>
+</div>
+<section class="eh-details-info">
+  <h6>By {{eventdata.organizer.fullname}}</h6>
+</section>
+
+<div class="description">
+    <div class="eh-main-details-row"><div class="eh-main-details-icon"><img src="assets/images/guest.png"></div><div class="eh-main-details-desc">Speaker {{eventdata.speaker}}</div></div>
+</div>
+<div class="description">
+  <div class="eh-main-details-row"><div class="eh-main-details-icon"><i class="fa fa-map-marker"></i></div><div class="eh-main-details-desc">At New Delhi on 12/08/2018</div></div>
+</div>
+<div class="description">
+  <div class="eh-main-details-row"><div class="eh-main-details-icon"><i class="fa fa-clock-o"></i></div><div class="eh-main-details-desc">At 9:30 am </div></div>
+</div>
+<div class="description">
+  <div class="eh-main-details-row"><div class="eh-main-details-icon"><i class="fa fa-calendar"></i></div><div class="eh-main-details-desc"> {{eventdata.location}}</div></div>
+</div>
+<div class="description">
+  <div class="eh-main-details-row"><div class="eh-main-details-icon"><i class="fa fa-users"></i></div><div class="eh-main-details-desc">Number of people </div></div>
+</div>
+
+<div class="description">
+ <a (click)="getJointEvent(eventId)"><button class="nav-link btn btn-primary discuss_event">Join Event </button></a>
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+<div class="row">
+<div id="accordion">
+      <div class="details_page">
+        <div class="card-header">
+          <a class="card-link" data-toggle="collapse" href="#collapseOne">
+              <h4 class="details_txt"> Details</h4>
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse" data-parent="#accordion">
+          <div class="card-body">
+              <div class="detail_content_txt">
+                  <p>Delhi is a royal destination and for centuries it is known for its rich and yummy food culture, we are fortunate today that this rich food culture is preserved in the form of small food joints by some thoughtful people for generations. We have designed this amazing experience for you with an intention to take you to these places for food tasting, so that you can also cherish this food, feast your taste buds and have a fabulous and lasting impression.</p>
+              <ul>
+                <li>
+                      1. We will begin exploring the rich and royal delicacies of Delhi on this food walk, you can witness the preparation, get an in-depth understanding of local food culture and the things that influenced the development of these cuisines. (Since these are small and years old food joints, the decor will be little dated but we are sure you the delicious food will take the focus away from decor and setting to the awesomeness of food).
+                    </li><li>
+                      2. You will taste more than 7 mouth watering and authentic delicacies of royal Delhi on this food tour, if you are a food lover and enjoy experiencing different kind of foods, then you should not miss this walking tour because trust us, you will surely regret it later.
+                    </li>
+                    </ul>
+                     <p> Note: We do quality assurance before adding a place on our food walk, so you can relax and enjoy the food without any worry.</p>
+                </div>
+          </div>
+        </div>
+      </div>
+      <div class="details_page">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+              <h4 class="details_txt"> Event Location</h4>
+        </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+          <div class="card-body">
+              <div class="detail_content">
+                  <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.228300304395!2d77.1347288150495!3d28.622918982421577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0331dfc00e73%3A0x37e0ff956b53fcb9!2sNaraina+Metro+station!5e0!3m2!1sen!2sin!4v1540626092992" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                  </agm-map>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="details_page">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+              <h4 class="details_txt">Comment</h4>
+          </a>
+        </div>
+        <div id="collapseThree" class="collapse" data-parent="#accordion">
+          <div class="card-body">
+              <div class="inner_com">
+                  <form class="form-horizontal" action="#">
+                    <div class="form-group">
+                      <div class="label_form">
+                        <label class="control-label" for="email">{{username}}:</label>
+                      </div>
+                      <div class="input_text_sec">
+                        <input [(ngModel)]="commentinput" name="commentinput"  type="text" class="form-control" id="inputText" (change)="postcommentuserevent(eventId)" placeholder="Enter Your Comment................" >
+                      </div>
+                     
+                    </div>
+                  </form>
+               
+      <!--  -->
+      
+      <div class="inner_com" *ngFor="let comment of eventdata.comments">
+          <div class="comment_content">
+              
+                  <div class="date_right">{{comment.postenOn | myDate}}</div>
+                  <div class="user_blog_name">    
+              <span class="user_color">{{comment.user.username}}</span>
+            <div class="comment_reply_pro">
+            <img class="rounded-circle" src="assets/images/profile.jpg" alt="profile">
+            <span [innerHTML]="comment.comment"></span>
+          </div>
+      
+        </div>
+      </div>
+      </div>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+</div>
+</div>
+
+
+<div class="col-lg-3">  
+<div class="event_detail_listing_section"  id="accordion" *ngIf="eventcategory=='myevent'">
+<div class="event_detail_right">
+    <span class="form-control rounded-0 event_title"><h5 class="send_invite">Send Invite & Attchement</h5>
+        <a class="add_attch_gallery" [routerLink]="['/events/add']" [queryParams]="{eventId:eventId}" placement="bottom" ngbTooltip="Invite & Attachement!">
+          <i class="fa fa-plus"></i>
+        </a>
+</span>
+</div>
+
+<!--  -->
+<!--  -->
+
+<div class="event_detail_right">
+  <div class="event_title">
+      <h5>Invitee Details</h5> 
+    </div>
+      <div class="card">
+      <div class="event-item">
+          <div class="announc_event">
+            <div class="event-place" >
+           <table class="table-responsive">
+             <tr  *ngFor="let invitee of inviterequestdetail?.inviteeRequestedList">
+               <td id='rest{{invitee.id}}' width="100px;">  {{invitee.user.username}}</td>
+               <td>
+                  <a (click)="getConfirmRequestInvitee(eventId,invitee.id,'CONFIRM')"><button class="btn btn-primary btn-sec confirm">Confirm</button></a>
+                </td>
+                  <td>
+                      <a (click)="getConfirmRequestInvitee(eventId,invitee.id,'REJECT')"><button class="btn btn-primary btn-sec reject">Reject</button></a>
+                      </td>
+                </tr>
+             </table>
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+<!--  -->
+
+<div class="event_detail_right">
+  <div class="event_title">
+      <h5> Details of Event User</h5> 
+    </div>
+      <div class="card" *ngFor="let invitee of invitedetail?.inviteeList">
+      <div class="event-item">
+          <div class="announc_event event_page_left">
+            <div class="event-place">
+                {{invitee.user.username}}
+                
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+
+
+</div>
+
+<ng-template #userlistnotShow>
+
+</ng-template>
+
+</div>
+</div>
+</div>
+
+
+<!--  -->
+
+
+
+
+

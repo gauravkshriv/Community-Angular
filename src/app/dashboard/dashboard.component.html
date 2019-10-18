@@ -1,0 +1,283 @@
+<div id="main_sec">
+  <div class="container-fluid nav-fluid" id="first-sec">
+     <div class="ask-prop">
+      <h1>RME Community DApp</h1>
+      <form action="" method="post" class="ask-form">
+        <input type="text" name="query" placeholder="Search for Land, Project, Freelancer Consultant, Discussion, Forums & Article" class="form-control">
+        <input type="submit" name="search" value="Search" class="btn btn-gold src-btn send-src-btn">
+      </form>
+    </div>
+
+
+
+  </div>
+  <!--  -->
+
+  <div class="high_events_section">
+    <div class="events_icon"><h5>Events</h5><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
+    <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scroll="left" scrolldelay="150"><p> </p>
+    </marquee>
+  </div>
+
+  <!-- events and annoucments -->
+  <div class="main_event_announc_page">
+    <div class="container">
+      <h3 class="text-center p-4">Events And Announcements</h3>
+      <div class="row">
+        <div class="event_container">
+          <div class="events_announce events event_float_left">
+            <p><img src="assets/images/calendar.png" alt="presentation"></p>
+            <h5 class="text-center p-2">Events & Announcements</h5>
+          </div>
+          <div class="title_img events event_float_left">
+
+            <div class="event_left_sec">
+
+              <img class="img-responsive" src="assets/images/ev.jpg" alt="ioon"/>
+              <a routerLink="/events/allevents">View All Events</a>
+            </div>
+            <div class="event_right_sec">
+              <ul>
+                <li class="title">WEBINAR</li>
+                <li>Block Chain Technology in real Estate</li>
+              </ul>
+              <table>
+                <tr>
+                  <td>Honourable Chief Minister</td>
+                  <td><img src="assets/images/guest.png" alt="guest"/></td>
+                </tr>
+                <tr>
+                  <td>At New Delhi on 12/08/2018</td>
+                  <td><i class="fa fa-map-marker"></i></td>
+                </tr>
+                <tr>
+                  <td>At 9:30 am</td>
+                  <td><i class="fa fa-clock-o"></i></td>
+                </tr>
+              </table>
+            <a routerLink="/events/post-event" ><button class="btn btn-primary">Add Event</button></a>
+            </div>
+          </div>
+
+
+          <div class="announcement events event_float_left">
+            <h5>Announcements</h5>
+            <ul>
+              <li class="title">WEBINAR</li>
+              <li>Block Chain Technology in real Estate</li>
+              <li>Honourable Chief Minister</li>
+
+            </ul>
+            <a routerLink="/events/allevents"><span>View Announcement</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
+      <div class="item" *ngFor="let image of mySlideImages;let i = index">
+       <div>
+         <img src={{image}}/>
+       </div>
+      </div>
+     </owl-carousel> -->
+  <!--  -->
+ <!--  -->
+ <div class="container discover_form mb-5">
+    <h3 class="text-center p-4">Discover Forums</h3>
+ <div class="land_loader"  *ngIf="lod else load2">
+    <img id="loader" alt="loader" src='https://opengraphicdesign.com/wp-content/uploads/2009/01/loader64.gif'>
+  </div>
+  <div class="card">
+  <ng-template #load2>
+    
+     
+      <div class="card-body disc-forum">
+        <div class="tab_cat">
+            <section class="main-slider-container">
+                <button (click)="move_left()">&#10096;</button>
+                <div id="slider-container" class="slider-container">
+                  <ul class="slider" >
+                      <li class="nav-item"  *ngFor="let categ of category;let i=index">
+                          <a class="nav-link" [ngClass]="{'active': selectedItemIndex == i}"
+                             (click)="categoryClick($event, i, categ.category)" data-toggle="tab">{{categ.category}}</a>
+                        </li>
+                  </ul>
+                </div>
+                <button (click)="move_right()">&#10097;</button>
+              </section>
+        </div>
+       
+
+
+        <div class="tab-content">
+          <div id="tab1" class="container-fluid tab-pane active p-0">
+            <ul class="list-group discuss-list">
+
+              <li class="list-group-item" *ngIf="questionsList==0; else dicover">
+                <h6>" Currently there are no discussions available in this category " </h6></li>
+
+         <ng-template #dicover>
+              <li class="list-group-item" *ngFor="let question of questionsList">
+                  <a [routerLink]="['/discussion',question.id]"> 
+                     <div class="row">
+                  <div class="col-sm-1">
+                    <img src="assets/images/profile.jpg" class="img-fluid" alt="profile">
+                  </div>
+                  <div class="col-sm-5">
+                   <p>{{question.title}}</p>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="discover_forum_head">
+                          <div class="dsc-status status_replies">
+                            <span><strong>Replies</strong> {{question.replyCount}}</span>
+                            <span><strong>Views</strong> {{question.viewsCount}} + </span>
+                            <span *ngIf="question.lastReply"><strong>Reply:</strong> {{question.lastReply | date}} </span>
+                           
+                            <p *ngIf="question.user.fullname; else usershown"><strong>Posted by</strong> {{question.user.fullname}} </p>
+                           <ng-template #usershown>
+                            <p><strong>Posted by</strong> {{question.user.username}} </p>
+                          </ng-template>
+                          
+                          </div>
+                        </div>
+                  </div>
+                </div></a>
+              </li>
+            </ng-template>
+              <div class="row">
+              <a class="col-lg-12"  *ngIf="questionsList!=0" routerLink="/posts" [queryParams]="{category: selectedCategoryName}">
+                <p class="discover_discuss">View All discussions</p></a>
+                <!-- <a class="col-lg-6" routerLink="/forums"> <p class="discover_forum_link">View More</p></a> -->
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </div>
+
+    </div>
+  
+    <!---->
+    <!-- top developers section starts here  -->
+    <!-- top developers section starts here  -->
+    <div class="top-category container mb-3">
+      <div class="container">
+        <div class="stackholder">
+          <h3 class="text-center p-3">Stakeholders</h3>
+          <div class="row">
+            <div class="col-md-3">
+              <a routerLink="/user/land-owner">
+                <div class="container categories">
+                  <h5 class="text-center">Land Owner</h5>
+                  <img src="assets/images/land-owner.png" class="land_owner" alt="broker">
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3">
+                <a routerLink="/user/land-developer">
+              <div class="container categories">
+                <h5 class="text-center">Land Developer</h5>
+                <img src="assets/images/deveolper.png" class="developer" alt="Developer">
+              </div>
+              </a>
+            </div>
+            
+            <div class="col-md-3">
+                <a routerLink="/user/builder">
+              <div class="container categories">
+                <h5 class="text-center">Builder</h5>
+                <img src="assets/images/builder.png" class="builder" alt="broker">
+              </div>
+              </a>
+            </div>
+  
+            <div class="col-md-3">
+              <a routerLink="/user/project-investor">
+              <div class="container categories">
+                <h5 class="text-center">Project Invester</h5>
+                <img src="assets/images/invester.png" class="invester" alt="broker">
+              </div>
+              </a>
+            </div>
+  
+          </div>
+        </div>
+        <div class="mt-5 beneficiary">
+          <h3 class="text-center p-3">Beneficiaries</h3>
+          <div class="row">
+  
+            <div class="col-md-3">
+                <a routerLink="/user/broker">
+              <div class="container categories">
+                <h5 class="text-center">Broker</h5>
+                <img src="assets/images/broker.png" class="broker" alt="broker">
+              </div>
+            </a>
+            </div>
+            <div class="col-md-3">
+                <a routerLink="/user/broking-house">
+              <div class="container categories">
+                <h5 class="text-center">Broking Houses</h5>
+                <img src="assets/images/broking-house.png" class="broking_house" alt="broker">
+              </div>
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a routerLink="/user/customer">
+              <div class="container categories">
+                <h5 class="text-center">End-User</h5>
+                <img src="assets/images/customer.png" class="customer" alt="broker">
+              </div>
+            </a>
+            </div>
+            <div class="col-md-3 m-auto">
+                <a routerLink="/user/facilitator">
+              <div class="container categories">
+                <h5 class="text-center">Consultant</h5>
+                <img src="assets/images/consultant.png" class="consultant" alt="broker">
+              </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--  -->
+
+  
+</div>
+
+<!-- <button id="openmodal" class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+
+
+  <div class="modal" *ngIf="show=='true'; else notShow2"></div>
+
+  <ng-template #notShow2>
+      <div class="modal fade" id="modallogout">
+  <div class="modal-dialog">
+      <div class="modal-content background_sec">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+          
+          <!-- Modal body -->
+          <div class="modal-body newsletter">
+           <span>Never miss a story from RME.</span>
+           <span>Subscribe to our Newsletter</span>
+           <div class="form-group popup">
+            <input type="text" class="form-control" id="usr" placeholder="Enter your Email">
+          </div>
+          <a href="http://account.rmehub.in/?referral=community"> <button class="btn btn-primary">SUBSCRIBE</button></a>
+          </div>
+          
+          <!-- Modal footer -->
+        </div>
+    
+  </div>
+</div>
+</ng-template>
+
+

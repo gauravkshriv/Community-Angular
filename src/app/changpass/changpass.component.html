@@ -1,0 +1,52 @@
+<div class="bg-prof"></div>
+<div class="container prof-area">
+  <div class="row">
+   <div class="col-lg-12 col-md-12 col-sm-10 password_sec">
+                  <div class="name">
+                  <h4>Change Password</h4>
+                </div>
+
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{title}}</strong> {{message}}
+        <button type="button" class="close" (click)="cross()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+<div class="form_table">
+    <form name="form">
+<div class="reset_lock">
+<i class="fa fa-lock" aria-hidden="true"></i>
+<p>Please change your password</p>
+</div>
+             <table class="table reset">
+      <tr> 
+      <td>Current Password</td>
+      <td>
+          <input type="password" value="" class="form-control" name="oldpassword"   [(ngModel)] = "oldpassword"  class="inputText" placeholder="Current Password">
+         
+        </td>
+      </tr>
+      <tr>
+      <td>New Password</td>
+      <td>
+          <input type="password" value="" class="form-control" name="username"   [(ngModel)] = "newpassword"   class="inputText" placeholder="New password">
+                 </td>
+      </tr>
+
+      <tr>
+      <td>Confirm Password</td>
+      <td>
+          <input type="password" value="" class="form-control" name="confirmPassword"  [(ngModel)] = "confirmPassword"  class="inputText" placeholder="Confirm password">
+        
+        </td>
+      </tr>  
+
+</table>				
+<button class="btn btn-primary" type="submit" (click)="ChangePass()"> Submit</button>  
+</form>
+              </div>
+            </div>
+    
+  </div>
+</div>
