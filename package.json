@@ -15,7 +15,7 @@
   "dependencies": {
     "@agm/core": "^1.0.0-beta.5",
     "@amcharts/amcharts3-angular": "^2.2.3",
-    "@amcharts/amcharts4": "^4.0.13",
+    "@amcharts/amcharts4": "^4.10.29",
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
